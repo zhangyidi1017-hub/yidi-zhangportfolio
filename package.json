@@ -1,0 +1,19 @@
+{
+  "name": "zhang-yidi-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:prototype": "node build-standalone.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.7",
+    "lenis": "^1.2.3"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

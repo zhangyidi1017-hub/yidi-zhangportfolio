@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 审查详情 - AI 项目智能管理投资决策平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">AI</div>
+        <h1>项目智能管理<br />投资决策平台</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-item">工作台</div>
+        <div class="nav-item">固定资产投资管理</div>
+        <div class="nav-item">政府投资项目管理</div>
+        <div class="nav-item">项目全过程查询管理</div>
+        <div class="nav-item">智能问答</div>
+        <div class="nav-item">债券管理</div>
+        <div class="nav-group-children">
+          <a class="nav-subitem active" href="index.html">债券项目评估</a>
+          <div class="nav-subitem">债券项目填报</div>
+          <div class="nav-subitem">债券项目储备管理</div>
+          <div class="nav-subitem">债券资金统计与分析</div>
+          <div class="nav-subitem">历史债券项目</div>
+          <div class="nav-subitem">债券政策知识库</div>
+        </div>
+        <div class="nav-item">专项交办</div>
+        <div class="nav-item">调查问卷</div>
+        <div class="nav-item">系统管理</div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <span>深圳市宝安区 · 发展改革局</span>
+          <span class="topbar-chip">AI Agent + RAG 决策引擎已就绪</span>
+        </div>
+        <div class="user-pill">
+          <div class="avatar">审</div>
+          <span>审核员 · 张明</span>
+        </div>
+      </header>
+
+      <main class="content" id="app"></main>
+    </div>
+  </div>
+
+  <div class="agent-toast" id="toast">已采用抽取字段，可继续下游规则比对</div>
+
+  <script src="assets/data.js"></script>
+  <script>
+    const { projects, statusLabel, badgeClass, auditSteps, phases, getFields } = DEMO_DATA
+    const id = new URLSearchParams(location.search).get('id') || '1'
+    const project = projects.find(p => p.id === id) || projects[0]
+    const passCount = auditSteps.filter(s => s.status === 'passed').length
+    const warnCount = auditSteps.filter(s => s.status === 'warning').length
+    const statusText = { passed: '通过', warning: '待关注', failed: '未通过' }
+    const flagText = { ok: '正常', warn: '需复核', missing: '缺失', info: '参考' }
+    const openMap = { s01: true, s03: true }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast')
+      el.textContent = msg
+      el.classList.add('show')
+      setTimeout(() => el.classList.remove('show'), 2000)
+    }
+
+    function fieldTable(bundle) {
+      if (!bundle) return ''
+      return `
+        <div class="field-panel">
+          <div class="field-panel-head">
+            <div>
+              <h5>${bundle.title}</h5>
+              <p>${bundle.usage}</p>
+            </div>
+            <button class="btn btn-primary btn-sm" type="button" onclick="showToast('已批量采用可用字段')">全部采用可用字段</button>
+          </div>
+          <div class="field-table-wrap">
+            <table class="field-table">
+              <thead>
+                <tr>
+                  <th>字段名</th><th>抽取值</th><th>来源位置</th><th>置信度</th><th>状态</th><th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${bundle.fields.map(f => `
+                  <tr class="flag-${f.flag}">
+                    <td>${f.name}</td>
+                    <td>
+                      <strong class="${f.flag === 'missing' ? 'text-danger' : ''}">${f.value}</strong>
+                      ${f.note ? `<div style="font-size:11px;color:#d46b08;margin-top:2px">${f.note}</div>` : ''}
+                    </td>
+                    <td style="color:#8c8c8c">${f.source}</td>
+                    <td>${f.confidence || '—'}</td>
+                    <td><span class="field-flag ${f.flag}">${flagText[f.flag] || f.flag}</span></td>
+                    <td>
+                      <button class="btn btn-default btn-sm" type="button" ${f.flag === 'missing' ? 'disabled' : ''}
+                        onclick="showToast('已采用「${f.name}」→ 写入审查表单')">采用</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+          ${bundle.more ? `<div class="field-more">另有 ${bundle.more} 个扩展字段已入库，可在完整抽取包中查看。</div>` : ''}
+        </div>
+      `
+    }
+
+    function renderSteps() {
+      const dots = auditSteps.map(s => `<div class="pipeline-dot ${s.status}" title="${s.title}"></div>`).join('')
+      let html = `
+        <div class="usage-banner">
+          <div>
+            <strong>抽取字段怎么用？</strong>
+            <span>展开步骤查看字段明细 → 核对来源页码/置信度 → 点击「采用」写入审查表单。缺失项先补件，偏差项人工改值后再复核。</span>
+          </div>
+        </div>
+        <div style="margin-bottom:10px">
+          <h4 style="font-size:15px">AI 校审核验流水线</h4>
+          <p style="font-size:12px;color:#8c8c8c;margin-top:4px">共 ${auditSteps.length} 个步骤 · 规则引擎 / RAG / Agent+MCP</p>
+        </div>
+        <div class="pipeline-track">${dots}</div>
+      `
+
+      phases.forEach(phase => {
+        const items = auditSteps.filter(s => s.phase === phase)
+        const passed = items.filter(s => s.status === 'passed').length
+        html += `
+          <div class="phase-block">
+            <div class="phase-header"><span>▾ ${phase}</span><em>${passed}/${items.length} 通过</em></div>
+            ${items.map((step, idx) => {
+              const globalIndex = auditSteps.findIndex(s => s.id === step.id) + 1
+              const open = !!openMap[step.id]
+              const bundle = getFields(step.id, project)
+              return `
+                <div class="step-card ${step.status}" id="${step.id}">
+                  <button class="step-card-head" type="button" data-toggle="${step.id}">
+                    <div class="step-index">${String(globalIndex).padStart(2, '0')}</div>
+                    <div class="step-main">
+                      <div class="step-title-row">
+                        <strong>${step.title}</strong>
+                        <span class="step-badge ${step.status}">${statusText[step.status]}</span>
+                        ${bundle ? `<span class="field-count-chip">${bundle.fields.length} 个字段</span>` : ''}
+                      </div>
+                      <p>${step.desc}</p>
+                    </div>
+                    <div class="step-score"><span>${step.score}</span><small>分</small></div>
+                    <span>${open ? '▾' : '▸'}</span>
+                  </button>
+                  <div class="step-card-body" style="display:${open ? 'block' : 'none'}">
+                    <div class="step-meta-row">
+                      <span>${step.engine}</span>
+                      <span>规则：${step.ruleRef}</span>
+                    </div>
+                    <div class="step-detail-grid">
+                      <div>
+                        <label>核验依据 / 证据</label>
+                        <p>${step.id === 's01' ? '已识别附件 12 份，缺失<span class="hl-danger">「水土保持方案批复」</span>扫描件。' : step.evidence}</p>
+                      </div>
+                      <div>
+                        <label>AI 结论</label>
+                        <p>${step.finding}</p>
+                      </div>
+                      ${step.suggestion ? `<div class="full"><label>处理建议</label><p>${step.suggestion}</p></div>` : ''}
+                    </div>
+                    ${fieldTable(bundle)}
+                  </div>
+                </div>
+              `
+            }).join('')}
+          </div>
+        `
+      })
+      return html
+    }
+
+    document.getElementById('app').innerHTML = `
+      <div class="breadcrumb">
+        <a href="index.html" style="color:#8c8c8c">债券管理</a> &gt;
+        <a href="index.html" style="color:#8c8c8c">债券项目评估</a> &gt;
+        <span>AI 审查详情</span>
+      </div>
+      <div style="margin-bottom:12px">
+        <a class="btn btn-default btn-sm" href="index.html">← 返回列表</a>
+      </div>
+      <div class="detail-layout">
+        <div class="page-card">
+          <div class="section-title">
+            <div>
+              ${project.name}
+              <div class="sub">
+                ${project.code} ·
+                <span class="badge ${badgeClass[project.status]}">${statusLabel[project.status]}</span>
+                · AI 已完成 ${passCount}/${auditSteps.length} 项校验${warnCount ? `，${warnCount} 项待关注` : ''}
+              </div>
+            </div>
+            <button class="btn btn-primary" type="button" onclick="showToast('AI 正在重新执行校核流水线…')">重新执行 AI 校核</button>
+          </div>
+          <div class="meta-grid">
+            <div class="meta-item"><div class="k">所属行业</div><div class="v">${project.industry}</div></div>
+            <div class="meta-item"><div class="k">项目规模</div><div class="v">${project.scale.toLocaleString()} ㎡</div></div>
+            <div class="meta-item"><div class="k">债券类型</div><div class="v">${project.bondType}</div></div>
+            <div class="meta-item"><div class="k">项目单位</div><div class="v">${project.projectUnit}</div></div>
+            <div class="meta-item"><div class="k">申报单位</div><div class="v">${project.reportUnit}</div></div>
+            <div class="meta-item"><div class="k">总审批金额</div><div class="v">${project.amount.toLocaleString()} 万元</div></div>
+          </div>
+          <div class="tabs-inline">
+            <button class="active" type="button">AI 审查详情</button>
+            <button type="button">决策总览</button>
+            <button type="button">建设监测 / 甘特图</button>
+            <button type="button">多模态分析</button>
+          </div>
+          <div id="stepsRoot">${renderSteps()}</div>
+        </div>
+        <aside class="ai-panel">
+          <div class="ai-panel-header"><h3>✦ AI 审查结论</h3></div>
+          <div class="ai-score">
+            <div class="score-ring" style="--p:${project.aiScore || 80}">
+              <div class="score-ring-inner">${project.aiScore || 80}</div>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:600;margin-bottom:4px">综合决策评分</div>
+              <div style="font-size:12px;color:#8c8c8c;line-height:1.5">基于 ${auditSteps.length} 步校核聚合<br/>建议补充材料后复核</div>
+            </div>
+          </div>
+          <div class="side-step-mini">
+            <div class="mini-row"><span>校核步骤</span><strong>${auditSteps.length}</strong></div>
+            <div class="mini-row"><span>通过</span><strong style="color:#52c41a">${passCount}</strong></div>
+            <div class="mini-row"><span>待关注</span><strong style="color:#fa8c16">${warnCount}</strong></div>
+            <div class="mini-row"><span>未通过</span><strong style="color:#ff4d4f">0</strong></div>
+          </div>
+          <button class="btn btn-primary" style="width:100%" type="button" onclick="showToast('决策参考报告已生成')">生成决策参考报告</button>
+        </aside>
+      </div>
+    `
+
+    document.getElementById('stepsRoot').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-toggle]')
+      if (!btn) return
+      const sid = btn.getAttribute('data-toggle')
+      openMap[sid] = !openMap[sid]
+      document.getElementById('stepsRoot').innerHTML = renderSteps()
+    })
+  </script>
+</body>
+</html>

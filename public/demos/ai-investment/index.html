@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>债券项目评估 - AI 项目智能管理投资决策平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-mark">AI</div>
+        <h1>项目智能管理<br />投资决策平台</h1>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-item">工作台</div>
+        <div class="nav-item">固定资产投资管理</div>
+        <div class="nav-item">政府投资项目管理</div>
+        <div class="nav-item">项目全过程查询管理</div>
+        <div class="nav-item">智能问答</div>
+        <div class="nav-item">债券管理</div>
+        <div class="nav-group-children">
+          <a class="nav-subitem active" href="index.html">债券项目评估</a>
+          <div class="nav-subitem">债券项目填报</div>
+          <div class="nav-subitem">债券项目储备管理</div>
+          <div class="nav-subitem">债券资金统计与分析</div>
+          <div class="nav-subitem">历史债券项目</div>
+          <div class="nav-subitem">债券政策知识库</div>
+        </div>
+        <div class="nav-item">专项交办</div>
+        <div class="nav-item">调查问卷</div>
+        <div class="nav-item">系统管理</div>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <span>深圳市宝安区 · 发展改革局</span>
+          <span class="topbar-chip">AI Agent + RAG 决策引擎已就绪</span>
+        </div>
+        <div class="user-pill">
+          <div class="avatar">审</div>
+          <span>审核员 · 张明</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-card">
+          <div class="breadcrumb">债券管理 &gt; <span>债券项目评估</span></div>
+
+          <div class="status-tabs" id="statusTabs"></div>
+
+          <div class="filter-bar">
+            <div class="filter-field">
+              <label>项目名称</label>
+              <input id="fName" placeholder="请输入项目名称" />
+            </div>
+            <div class="filter-field">
+              <label>资金类型</label>
+              <select id="fFund">
+                <option>全部</option>
+                <option>国债</option>
+                <option>专项债</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label>申报单位</label>
+              <select id="fUnit">
+                <option>全部</option>
+                <option>宝安街道办</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label>AI审核状态</label>
+              <select id="fStatus">
+                <option>全部</option>
+                <option>待审核</option>
+                <option>审核中</option>
+              </select>
+            </div>
+            <div class="filter-actions">
+              <button class="btn btn-primary" id="btnSearch" type="button">搜索</button>
+              <button class="btn btn-success" id="btnBatch" type="button">✦ AI批量分析</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>序号</th>
+                  <th></th>
+                  <th>项目编码</th>
+                  <th>项目名称</th>
+                  <th>项目规模 ㎡</th>
+                  <th>所属行业</th>
+                  <th>项目单位</th>
+                  <th>申报单位</th>
+                  <th>债券类型</th>
+                  <th>总审批金额 万元</th>
+                  <th>AI审核状态</th>
+                  <th>AI审核进度</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="pagination">
+            <span id="totalText">共 0 条</span>
+            <select disabled><option>10条/页</option></select>
+            <button class="page-btn" id="prevPage" type="button">‹</button>
+            <span id="pageNums"></span>
+            <button class="page-btn" id="nextPage" type="button">›</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <button class="chat-fab chat-dock" type="button" title="AI 决策助手">✦</button>
+  <div class="agent-toast" id="toast">AI Agent 正在批量审查所选项目…</div>
+
+  <script src="assets/data.js"></script>
+  <script>
+    const { projects, statusLabel, badgeClass, tabMap } = DEMO_DATA
+    const PAGE_SIZE = 10
+    let tab = 'pending'
+    let page = 1
+
+    const counts = {
+      pending: projects.filter(p => tabMap.pending.includes(p.status)).length,
+      reviewed: projects.filter(p => p.status === 'reviewed').length,
+      passed: projects.filter(p => p.status === 'passed').length,
+      failed: projects.filter(p => p.status === 'failed').length,
+    }
+
+    const tabs = [
+      { key: 'pending', label: 'AI待审查' },
+      { key: 'reviewed', label: 'AI已审查' },
+      { key: 'passed', label: '复核已通过' },
+      { key: 'failed', label: '复核未通过' },
+    ]
+
+    function renderTabs() {
+      document.getElementById('statusTabs').innerHTML = tabs.map(t => `
+        <button class="status-tab ${tab === t.key ? 'active' : ''}" data-tab="${t.key}" type="button">
+          ${t.label}<span class="count">${counts[t.key]}</span>
+        </button>
+      `).join('')
+      document.querySelectorAll('.status-tab').forEach(btn => {
+        btn.onclick = () => {
+          tab = btn.dataset.tab
+          page = 1
+          document.getElementById('fStatus').value = '全部'
+          document.getElementById('fStatus').disabled = tab !== 'pending'
+          renderTabs()
+          renderTable()
+        }
+      })
+    }
+
+    function getFiltered() {
+      const name = document.getElementById('fName').value.trim()
+      const fund = document.getElementById('fFund').value
+      const unit = document.getElementById('fUnit').value
+      const aiStatus = document.getElementById('fStatus').value
+      return projects.filter(p => {
+        if (!tabMap[tab].includes(p.status)) return false
+        if (name && !p.name.includes(name)) return false
+        if (fund !== '全部' && p.fundType !== fund && !p.bondType.includes(fund)) return false
+        if (unit !== '全部' && p.reportUnit !== unit) return false
+        if (tab === 'pending') {
+          if (aiStatus === '待审核' && p.status !== 'pending') return false
+          if (aiStatus === '审核中' && p.status !== 'reviewing') return false
+        }
+        return true
+      })
+    }
+
+    function renderTable() {
+      const list = getFiltered()
+      const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE))
+      if (page > totalPages) page = totalPages
+      const slice = list.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+
+      document.getElementById('tableBody').innerHTML = slice.length ? slice.map((p, i) => `
+        <tr>
+          <td>${(page - 1) * PAGE_SIZE + i + 1}</td>
+          <td><input type="checkbox" /></td>
+          <td>${p.code}</td>
+          <td><a class="link" href="detail.html?id=${p.id}">${p.name}</a></td>
+          <td>${p.scale.toLocaleString()}</td>
+          <td>${p.industry}</td>
+          <td>${p.projectUnit}</td>
+          <td>${p.reportUnit}</td>
+          <td>${p.bondType}</td>
+          <td>${p.amount.toLocaleString()}</td>
+          <td><span class="badge ${badgeClass[p.status]}">${statusLabel[p.status]}</span></td>
+          <td>
+            <div class="progress">
+              <div class="progress-track"><div class="progress-fill" style="width:${p.progress}%"></div></div>
+              <span class="progress-text">${p.progress}%</span>
+            </div>
+          </td>
+        </tr>
+      `).join('') : `<tr><td colspan="12" style="text-align:center;padding:40px;color:#8c8c8c">暂无符合条件的项目</td></tr>`
+
+      document.getElementById('totalText').textContent = `共 ${list.length} 条`
+      document.getElementById('pageNums').innerHTML = Array.from({ length: Math.min(totalPages, 6) }, (_, i) => i + 1)
+        .map(n => `<button class="page-btn ${page === n ? 'active' : ''}" data-page="${n}" type="button">${n}</button>`).join('')
+      document.querySelectorAll('#pageNums .page-btn').forEach(btn => {
+        btn.onclick = () => { page = Number(btn.dataset.page); renderTable() }
+      })
+      document.getElementById('prevPage').disabled = page <= 1
+      document.getElementById('nextPage').disabled = page >= totalPages
+    }
+
+    document.getElementById('prevPage').onclick = () => { if (page > 1) { page--; renderTable() } }
+    document.getElementById('nextPage').onclick = () => { page++; renderTable() }
+    document.getElementById('btnSearch').onclick = () => { page = 1; renderTable() }
+    document.getElementById('btnBatch').onclick = () => {
+      const toast = document.getElementById('toast')
+      toast.classList.add('show')
+      setTimeout(() => toast.classList.remove('show'), 2200)
+    }
+
+    document.getElementById('fStatus').disabled = false
+    renderTabs()
+    renderTable()
+  </script>
+</body>
+</html>
