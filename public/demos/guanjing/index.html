@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guanjing — AI Travel Planning for China</title>
+  <meta name="description" content="Plan meaningful trips across Beijing, Suzhou and Shanghai with an AI travel agent built for cultural discovery, smart routes and editable itineraries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="app.css?v=78" />
+</head>
+<body>
+  <div class="app view-home" id="appRoot">
+    <aside class="sidebar" aria-label="主导航">
+      <a class="logo" href="#" id="logoHome" aria-label="观境首页">
+        <span class="logo-mark">G</span>
+        <span class="logo-text" data-i18n="brandName">GUANJING</span>
+      </a>
+
+      <nav class="side-nav">
+        <button class="nav-item active" type="button" data-panel="home" data-i18n-title="navHome" title="首页">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+          <span data-i18n="navHome">首页</span>
+        </button>
+        <button class="nav-item" type="button" data-panel="inspire" data-i18n-title="navExplore" title="探索">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 1 0 14 7 7 0 0 1 0-14Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm7.7 11.3 2 2a1 1 0 0 1-1.4 1.4l-2-2a1 1 0 1 1 1.4-1.4Z"/></svg>
+          <span data-i18n="navExplore">探索</span>
+        </button>
+        <button class="nav-item" type="button" data-panel="trips" data-i18n-title="navTrips" title="我的旅行">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7V5.8A1.8 1.8 0 0 1 8.8 4h6.4A1.8 1.8 0 0 1 17 5.8V7h2.2A1.8 1.8 0 0 1 21 8.8v9.4A1.8 1.8 0 0 1 19.2 20H4.8A1.8 1.8 0 0 1 3 18.2V8.8A1.8 1.8 0 0 1 4.8 7H7Zm2 0h6V5.8a.3.3 0 0 0-.3-.3H9.3a.3.3 0 0 0-.3.3V7Z"/></svg>
+          <span data-i18n="navTrips">我的旅行</span>
+        </button>
+        <button class="nav-item" type="button" data-panel="saved" data-i18n-title="navSaved" title="收藏">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.7 13A4.6 4.6 0 0 1 11.3 6L12 6.7 12.7 6a4.6 4.6 0 0 1 6.6 6.4L12 20.3Z"/></svg>
+          <span data-i18n="navSaved">收藏</span>
+        </button>
+      </nav>
+
+      <button class="new-chat-btn" type="button" id="newChatBtn"><span>+</span> <span data-i18n="newChat">新对话</span></button>
+
+      <div class="side-footer">
+        <button class="lang-toggle" type="button" id="langBtn" aria-label="Switch to English">EN</button>
+        <div class="user-chip">
+          <div class="avatar">G</div>
+          <div>
+            <strong data-i18n="traveler">旅行者</strong>
+            <small data-i18n="region">京 · 苏 · 沪</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="berd-landing" id="berdLanding" aria-label="Guanjing travel agent">
+      <header class="berd-fixed-nav">
+        <a class="berd-brand" href="#berdHero" aria-label="Guanjing home"><span>G</span><strong>GUANJING</strong></a>
+        <div class="berd-nav-actions"><button class="berd-lang" type="button" id="berdLangBtn">中文</button><button class="berd-launch" type="button" data-berd-start data-i18n="landingOpen">OPEN TRAVEL AGENT</button></div>
+      </header>
+
+      <section class="berd-hero" id="berdHero">
+        <div class="berd-collage" aria-hidden="true">
+          <figure class="berd-cutout cutout-one"><img src="assets/garden-moon-gate.png" alt="" /></figure>
+          <figure class="berd-cutout cutout-two"><img src="assets/garden-corridor-bridge.png" alt="" /></figure>
+        </div>
+
+        <div class="berd-window" aria-label="Travel agent preview">
+          <div class="berd-window-body">
+            <nav class="berd-mini-rail">
+              <span data-i18n="landingHome">Home</span><span data-i18n="landingAgent">Agent</span><span data-i18n="landingTrips">Trips</span><span data-i18n="landingSaved">Saved</span>
+            </nav>
+            <div class="berd-demo-canvas">
+              <div class="berd-demo-copy">
+                <small data-i18n="landingWorkspace">AI TRAVEL WORKSPACE</small>
+                <h1><span data-i18n="landingHero1">Go beyond</span><br /><span data-i18n="landingHero2">the itinerary.</span></h1>
+              </div>
+              <div class="berd-orbit orbit-one"><img src="assets/city-vignette-beijing-v3.png" alt="" /><span data-i18n="landingBeijing">BEIJING · FOOD & HERITAGE</span></div>
+              <div class="berd-orbit orbit-two"><img src="assets/city-vignette-suzhou-v3.png" alt="" /><span data-i18n="landingSuzhou">SUZHOU · GARDENS & TEA</span></div>
+              <div class="berd-orbit orbit-three"><img src="assets/city-vignette-shanghai-v4.png" alt="" /><span data-i18n="landingShanghai">SHANGHAI · LANES & BITES</span></div>
+              <button class="berd-orbit orbit-four" type="button" data-berd-start><img src="assets/city-vignette-shaanxi-v4.png" alt="" /><span data-i18n="landingShaanxi">SHAANXI · ROUJIAMO</span></button>
+              <form class="berd-demo-input" id="berdStartForm">
+                <input type="text" id="berdStartInput" placeholder="Describe your perfect trip..." data-i18n-placeholder="landingPlaceholder" autocomplete="off" />
+                <button type="submit" data-i18n="landingStart">START PLANNING</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <a class="berd-scroll" href="#berdStatement" aria-label="Scroll to learn more">↓</a>
+      </section>
+
+      <section class="berd-statement" id="berdStatement">
+        <div class="garden-story-layer" aria-hidden="true">
+          <svg class="garden-route" viewBox="0 0 1000 800" preserveAspectRatio="none"><path d="M0 610 C190 690 170 250 360 310 S650 650 790 390 S900 170 1000 215" /></svg>
+          <img class="garden-story statement-gate" src="assets/garden-moon-gate.png" alt="" />
+          <img class="garden-story statement-bridge" src="assets/garden-corridor-bridge.png" alt="" />
+        </div>
+        <p data-i18n="landingPrefix">A better way to</p>
+        <h2><span id="berdTypewriter">travel</span><i aria-hidden="true"></i></h2>
+        <p class="berd-statement-subtitle berd-reveal" data-i18n="landingSubtitle">MORE THAN SIGHTSEEING, IT’S A TRUE DIVE INTO CHINESE CULTURE.</p>
+      </section>
+
+      <section class="berd-values" aria-label="Why Guanjing">
+        <div class="garden-story-layer" aria-hidden="true">
+          <svg class="garden-route" viewBox="0 0 1000 800" preserveAspectRatio="none"><path d="M0 160 C150 90 235 520 400 475 S630 150 760 285 S880 610 1000 520" /></svg>
+          <img class="garden-story values-bridge" src="assets/garden-corridor-bridge.png" alt="" />
+          <img class="garden-story values-gate" src="assets/garden-moon-gate.png" alt="" />
+        </div>
+        <article class="berd-reveal"><em>01</em><h3>Your trip,<br />your rhythm.</h3><p>Shape every day around your pace, interests and the way you actually like to move.</p></article>
+        <article class="berd-reveal"><em>02</em><h3>One agent,<br />the whole journey.</h3><p>Discover, organize and refine the trip without jumping between a dozen planning tools.</p></article>
+        <article class="berd-reveal"><em>03</em><h3>Culture over<br />checklists.</h3><p>Understand neighborhoods, architecture and local context instead of collecting pins.</p></article>
+        <article class="berd-reveal"><em>04</em><h3>Plans that<br />stay flexible.</h3><p>Rebuild routes around weather, opening hours and whatever changes along the way.</p></article>
+      </section>
+
+      <section class="berd-built">
+        <div class="garden-story-layer" aria-hidden="true">
+          <svg class="garden-route" viewBox="0 0 1000 800" preserveAspectRatio="none"><path d="M0 210 C190 420 260 80 430 210 S600 650 760 530 S895 250 1000 410" /></svg>
+          <img class="garden-story built-gate" src="assets/garden-moon-gate.png" alt="" />
+          <img class="garden-story built-bridge" src="assets/garden-corridor-bridge.png" alt="" />
+        </div>
+        <h2 data-i18n="landingScrollTitle">Journeys built with Guanjing</h2>
+        <div class="garden-handscroll berd-reveal" aria-label="An illustrated journey through a classical Chinese garden">
+          <div class="garden-handscroll-track">
+            <img src="assets/garden-handscroll-v1.png" alt="A continuous illustrated Chinese garden journey" />
+            <img src="assets/garden-handscroll-v1.png" alt="" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <section class="berd-final">
+        <div class="berd-final-copy"><p><span data-i18n="landingFinal1">Less planning.</span><br /><span data-i18n="landingFinal2">More being there.</span></p></div>
+        <button class="berd-final-disc" type="button" data-berd-start data-i18n="landingFinalCta">PLAN A TRIP WITH GUANJING</button>
+        <footer><span>GUANJING © 2026</span><span data-i18n="landingFooter">TRAVEL DEEPER</span><span>EN / 中文</span></footer>
+      </section>
+      <div class="berd-cursor" id="berdCursor" aria-hidden="true"></div>
+    </main>
+
+    <!-- HOME: Jimeng-style agent + discover -->
+    <main class="home-pane" id="homePane" aria-label="首页">
+      <div class="workspace" id="workspace">
+        <section class="chat-pane" aria-label="行程对话">
+          <header class="home-agent-bar">
+            <button class="ghost-select" type="button" id="newChatMenuBtn" data-i18n="newChatMenu">新对话 ▾</button>
+            <div class="title-actions">
+              <button class="lang-toggle compact" type="button" id="langBtnTop" aria-label="Switch to English">EN</button>
+              <button class="btn-primary create-trip-btn" type="button" id="createTripBtn" data-i18n="createTrip">+ 创建行程</button>
+            </div>
+          </header>
+
+          <div class="workspace-intro" aria-hidden="true">
+            <h2 data-i18n="workspaceGreeting">Hi traveler, where do you want to go?</h2>
+          </div>
+
+          <div class="chat-scroll" id="chatScroll">
+            <div class="chat-empty home-agent" id="chatEmpty">
+              <h1 id="heroTitle">今天去哪，北京？</h1>
+              <p id="heroDesc">将故宫空间序列、中轴线秩序与胡同生活体验，读成一条皇城叙事。</p>
+
+              <footer class="composer composer-hero" id="composer">
+                <form class="composer-box jimeng-box" id="chatForm">
+                  <div class="jimeng-box-main">
+                    <button class="icon-btn" type="button" aria-label="附件">+</button>
+                    <input id="chatInput" type="text" data-i18n-placeholder="placeholder" placeholder="输入想法… 故宫 / 园林 / 胡同 / 上海文化" autocomplete="off" />
+                    <button class="send-btn" type="submit" aria-label="开始探索">开始探索</button>
+                  </div>
+                  <div class="jimeng-box-tools">
+                    <div class="filters chat-filters" role="group" aria-label="行程筛选">
+                      <button class="filter-chip" type="button" data-filter="where"><span>Where</span><strong id="filterWhere">北京</strong></button>
+                      <button class="filter-chip" type="button" data-filter="when"><span>When</span><strong id="filterWhen">未定</strong></button>
+                      <button class="filter-chip" type="button" data-filter="who"><span>Who</span><strong id="filterWho">2 人</strong></button>
+                      <button class="filter-chip" type="button" data-filter="budget"><span>Budget</span><strong id="filterBudget">适中</strong></button>
+                    </div>
+                    <button class="soft-btn soft-btn-inline" type="button" id="setupBtn" data-i18n="setup">更新我的助手</button>
+                  </div>
+                </form>
+              </footer>
+
+              <div class="feature-row" id="suggestRow"></div>
+            </div>
+            <div class="messages" id="messages" hidden></div>
+          </div>
+          <div class="composer-dock" id="composerDock" hidden></div>
+          <div class="workspace-tools" aria-label="旅行工具">
+            <button type="button" data-i18n="toolItinerary" data-workspace-prompt="Turn my saved places into an efficient itinerary">Build itinerary</button>
+            <button type="button" data-i18n="toolBudget" data-workspace-prompt="Optimize the budget and transport for this trip">Budget & transport</button>
+            <button type="button" data-i18n="toolDiscover" data-workspace-prompt="Recommend neighborhoods and cultural places for slow travel">Discover places</button>
+            <button type="button" data-i18n="toolThreeDay" data-workspace-prompt="Create an actionable three-day travel plan">3-day plan</button>
+            <button type="button" data-i18n="toolReplan" data-workspace-prompt="Replan the route around weather and opening hours">Smart replan</button>
+          </div>
+        </section>
+
+        <aside class="discover-pane" aria-label="行程与探索">
+          <div class="discover-tabs" role="tablist" aria-label="发现">
+            <button type="button" class="discover-tab active" data-discover="explore" data-i18n="travelExplore">旅游探索</button>
+            <button type="button" class="discover-tab" data-discover="trips" data-i18n="homeTripsTitle">我的行程</button>
+            <div class="discover-tabs-spacer"></div>
+            <button class="loc-btn" type="button" id="locBtn">北京 ▾</button>
+            <button class="map-toggle" type="button" id="mapToggle" data-i18n="map">地图</button>
+            <button class="linkish" type="button" id="homeRegenBtn" data-i18n="regenTrip">重新生成</button>
+          </div>
+
+          <div class="discover-panel" id="discoverExplore" data-panel="explore">
+            <nav class="explore-categories" id="exploreCategories" aria-label="旅游探索分类"></nav>
+            <div class="map-panel" id="mapPanel" hidden>
+              <div class="mini-map" id="miniMap" aria-hidden="true"></div>
+            </div>
+            <div class="card-grid home-masonry" id="explore-grid"></div>
+          </div>
+
+          <div class="discover-panel" id="discoverTrips" data-panel="trips" hidden>
+            <div class="h-scroll home-trip-scroll" id="homeTripGrid" aria-label="行程卡片"></div>
+            <p class="trips-empty home-trips-empty-inline" id="homeTripsEmpty" hidden data-i18n="homeTripsEmpty">还没有行程。点「创建行程」按偏好生成一张。</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- SAVED: favorites from waterfall / recommendations -->
+    <main class="saved-pane" id="savedPane" aria-label="收藏">
+      <header class="inspire-top">
+        <div>
+          <h1 data-i18n="savedTitle">收藏</h1>
+          <p data-i18n="savedSub">来自首页瀑布流与行程推荐的收藏内容</p>
+        </div>
+        <div class="title-actions">
+          <button class="lang-toggle compact" type="button" id="langBtnSaved" aria-label="Switch to English">EN</button>
+        </div>
+      </header>
+      <div class="inspire-page-meta" id="savedMeta"></div>
+      <div class="saved-grid" id="savedGrid"></div>
+      <p class="trips-empty" id="savedEmpty" hidden data-i18n="savedEmpty">还没有收藏。在首页瀑布流或右侧行程推荐点 ♥ 即可加入这里。</p>
+    </main>
+
+    <!-- INSPIRE: routes · cities · impressions · spots -->
+    <main class="inspire-pane" id="inspirePane" aria-label="灵感">
+      <header class="inspire-top">
+        <div>
+          <h1 data-i18n="inspirePageTitle">灵感</h1>
+          <p data-i18n="inspirePageSub">展览联线路线 · 每条路线包含的城市印象与具体景点</p>
+        </div>
+        <div class="title-actions">
+          <button class="lang-toggle compact" type="button" id="langBtnInspire" aria-label="Switch to English">EN</button>
+          <button class="btn-primary" type="button" id="inspireToChatBtn" data-i18n="goChat">回到首页对话 →</button>
+        </div>
+      </header>
+      <div class="inspire-page-meta" data-i18n="inspireMeta">5 条联线 · 含城市印象与景点</div>
+      <div class="inspire-page-grid" id="inspirePageGrid"></div>
+    </main>
+
+    <!-- TRIPS: all planning cards → click for detail flow -->
+    <main class="trips-pane" id="tripsPane" aria-label="行程">
+      <section class="trips-list-view" id="tripsListView">
+        <header class="trips-top">
+          <div>
+            <h1 data-i18n="tripsTitle">我的行程</h1>
+            <p class="trips-sub" data-i18n="tripsSub">所有规划过的行程卡片，点进查看可编辑详情</p>
+          </div>
+          <div class="title-actions">
+            <button class="lang-toggle compact" type="button" id="langBtnTripsList" aria-label="Switch to English">EN</button>
+            <button class="btn-primary" type="button" id="tripsNewTripBtn" data-i18n="newTrip">+ 新建行程</button>
+          </div>
+        </header>
+        <div class="trips-project-list trips-card-grid" id="tripsProjectList" aria-label="行程卡片列表"></div>
+        <p class="trips-empty" id="tripsEmpty" hidden data-i18n="tripsEmpty">还没有行程。在对话里规划，或点「新建行程」生成一张。</p>
+      </section>
+
+      <section class="trips-detail-view" id="tripsDetailView" hidden>
+        <header class="trip-flow-top">
+          <button class="trip-back-btn" type="button" id="tripBackBtn" data-i18n="tripBack">← 返回行程列表</button>
+          <div class="title-actions">
+            <button class="lang-toggle compact" type="button" id="langBtnTrips" aria-label="Switch to English">EN</button>
+            <button class="btn-secondary" type="button" id="tripShareBtn" data-i18n="tripShare">一键分享</button>
+            <button class="btn-secondary" type="button" id="tripDownloadBtn" data-i18n="tripDownload">下载卡片</button>
+            <button class="btn-primary" type="button" id="tripSaveBtn" data-i18n="tripSave">保存编辑</button>
+          </div>
+        </header>
+
+        <div class="trip-flow-hero">
+          <img id="tripAiImg" src="" alt="" />
+          <div class="trip-flow-hero-copy">
+            <span class="trip-ai-badge" data-i18n="tripAiBadge">AI 根据你的偏好生成</span>
+            <input class="trip-flow-title-input" id="tripAiTitle" type="text" maxlength="80" aria-label="行程标题" />
+            <textarea class="trip-flow-summary-input" id="tripAiSummary" rows="2" maxlength="280" aria-label="行程摘要"></textarea>
+            <div class="trip-ai-meta-row">
+              <label class="trip-ai-field">
+                <span data-i18n="tripFieldDays">天数</span>
+                <input id="tripAiDays" type="number" min="1" max="14" />
+              </label>
+              <label class="trip-ai-field trip-ai-field-grow">
+                <span data-i18n="tripFieldPlace">目的地</span>
+                <input id="tripAiPlace" type="text" maxlength="60" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="trip-flow" id="tripFlow" aria-label="行程流程"></div>
+        <div id="tripAiDaysPlan" hidden></div>
+        <p class="trip-ai-hint" id="tripAiHint" hidden></p>
+      </section>
+    </main>
+
+  </div>
+
+  <dialog class="sheet" id="filterSheet">
+    <form method="dialog" id="filterForm">
+      <h3 id="sheetTitle">设置</h3>
+      <div id="sheetBody"></div>
+      <menu>
+        <button value="cancel" type="submit" data-i18n="sheetCancel">取消</button>
+        <button value="ok" class="ok" type="submit" data-i18n="sheetOk">完成</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog class="place-detail-dialog" id="placeDetailDialog">
+    <button class="place-detail-close" type="button" id="placeDetailClose" aria-label="Close">×</button>
+    <div id="placeDetailContent"></div>
+  </dialog>
+
+  <script src="i18n.js?v=57"></script>
+    <script src="app.js?v=68"></script>
+  <script>
+    (function () {
+      const side = document.getElementById("langBtn");
+      ["langBtnTop", "langBtnTrips", "langBtnTripsList", "langBtnInspire", "langBtnSaved"].forEach((id) => {
+        const btn = document.getElementById(id);
+        if (!btn || !side) return;
+        btn.addEventListener("click", () => side.click());
+        const sync = () => {
+          btn.textContent = side.textContent;
+          btn.setAttribute("aria-label", side.getAttribute("aria-label") || "");
+        };
+        new MutationObserver(sync).observe(side, { characterData: true, childList: true, subtree: true, attributes: true });
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>

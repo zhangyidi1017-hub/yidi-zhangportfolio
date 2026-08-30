@@ -1,0 +1,280 @@
+  const inspireRoutes = [
+    {
+      key: "bj-tj",
+      img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=700&q=80",
+      zh: {
+        title: "北京 · 天津",
+        days: "3 日",
+        sub: "故宫中轴胡同 × 五大道 / 意式风情 / 海河",
+        highlights: ["故宫中轴", "胡同什刹海", "五大道", "意式风情区"],
+        summary: "高铁约 30 分钟串联双城：北京读礼仪秩序与胡同生活，天津读开埠近代建筑与海河码头。",
+        daysPlan: [
+          { day: "D1 北京", items: ["天安门广场 → 故宫（午门入/神武门出，走中轴序列）", "景山万春亭俯瞰中轴收束", "傍晚什刹海 / 烟袋斜街胡同慢走"] },
+          { day: "D2 天津", items: ["高铁抵津 → 五大道骑行/漫步（万国建筑）", "古文化街小吃与天后宫一带", "意式风情区 → 海河 / 天津之眼夜景"] },
+          { day: "D3 选边加深", items: ["留京：天坛或颐和园补皇家园林", "或留津：瓷房子 / 静园 / 曲艺体验后返程"] },
+        ],
+        tips: ["故宫需提前官方预约", "京津高铁频繁，行李宜轻便", "两人适中预算，住宿可 D1 北京、D2 天津"],
+      },
+      en: {
+        title: "Beijing · Tianjin",
+        days: "3 days",
+        sub: "Palace / Axis / Hutong × Five Avenues / Italian Style Town / Haihe",
+        highlights: ["Forbidden City", "Hutong & Shichahai", "Five Avenues", "Italian Quarter"],
+        summary: "Link both cities by ~30 min HSR: Beijing for ritual order and hutong life; Tianjin for treaty-port architecture and the Haihe waterfront.",
+        daysPlan: [
+          { day: "D1 Beijing", items: ["Tiananmen → Forbidden City (Meridian Gate in / Shenwu Gate out along the axis)", "Jingshan Wanchun Pavilion overlook", "Evening Shichahai / Yandai Xie street hutong walk"] },
+          { day: "D2 Tianjin", items: ["HSR to Tianjin → Five Avenues stroll", "Ancient Culture Street & Mazu temple area", "Italian Style Town → Haihe / Tianjin Eye night view"] },
+          { day: "D3 Go deeper", items: ["Stay in BJ: Temple of Heaven or Summer Palace", "Or stay in TJ: Porcelain House / Jingyuan / folk arts, then depart"] },
+        ],
+        tips: ["Book the Forbidden City officially in advance", "HSR is frequent—pack light", "Moderate budget for 2: sleep BJ night 1, TJ night 2"],
+      },
+    },
+    {
+      key: "xa-cd",
+      img: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=700&q=80",
+      zh: {
+        title: "西安 · 成都",
+        days: "5 日",
+        sub: "兵马俑与城墙礼制 × 宽窄巷子市井慢生活",
+        highlights: ["兵马俑", "城墙回民街", "宽窄巷子", "武侯祠锦里"],
+        summary: "先厚重后巴适：西安读礼制与黄土文明，高铁穿秦岭后，成都读街巷节奏与茶馆生活。",
+        daysPlan: [
+          { day: "D1 西安", items: ["钟楼 / 鼓楼 → 城墙段步行", "回民街或大皮院吃泡馍/烤肉（避开纯网红主街）"] },
+          { day: "D2 西安", items: ["秦始皇帝陵博物院（兵马俑）早场", "华清宫", "可选大唐不夜城夜景"] },
+          { day: "D3 西成高铁", items: ["西安北 → 成都东（约 3–4h）", "下午武侯祠 → 锦里过渡"] },
+          { day: "D4 成都", items: ["大熊猫基地（早）", "宽窄巷子茶馆与川菜", "夜：地道火锅（社区店优于景区店）"] },
+          { day: "D5 成都", items: ["都江堰或青城山半日", "返程；或春熙路自由活动"] },
+        ],
+        tips: ["兵马俑尽早入场", "西成高铁提前购票", "西安住钟楼/南门，成都住宽窄或春熙附近"],
+      },
+      en: {
+        title: "Xi’an · Chengdu",
+        days: "5 days",
+        sub: "Terracotta & city wall × Kuanzhai alleys and slow living",
+        highlights: ["Terracotta Army", "City wall & Muslim Quarter", "Kuanzhai Alley", "Wuhou & Jinli"],
+        summary: "Heavy history first, then easy living: Xi’an for ritual landscape; after HSR across Qinling, Chengdu for lanes, teahouses, and pace.",
+        daysPlan: [
+          { day: "D1 Xi’an", items: ["Bell / Drum Tower → wall walk segment", "Muslim Quarter or Dapiyuan for local food (skip pure selfie streets)"] },
+          { day: "D2 Xi’an", items: ["Emperor Qin’s Mausoleum Museum (Terracotta) early entry", "Huaqing Palace", "Optional Great Tang Mall night"] },
+          { day: "D3 HSR west", items: ["Xi’an North → Chengdu East (~3–4h)", "Afternoon Wuhou Shrine → Jinli"] },
+          { day: "D4 Chengdu", items: ["Panda Base (morning)", "Kuanzhai teahouse & Sichuan food", "Night: neighborhood hotpot over tourist chains"] },
+          { day: "D5 Chengdu", items: ["Half-day Dujiangyan or Qingcheng", "Depart—or free time at Chunxi"] },
+        ],
+        tips: ["Enter Terracotta early", "Book Xi’an–Chengdu HSR ahead", "Stay near Bell Tower in Xi’an; Kuanzhai/Chunxi in Chengdu"],
+      },
+    },
+    {
+      key: "sh-sz",
+      img: "https://images.unsplash.com/photo-1545893835-abaa50cbe628?w=700&q=80",
+      zh: {
+        title: "上海 · 苏州",
+        days: "3 日",
+        sub: "外滩海派立面 × 拙政园 / 平江路园林叙事",
+        highlights: ["外滩", "武康路", "拙政园", "平江路"],
+        summary: "沪苏高铁约 30 分钟：上海读立面与街道尺度，苏州深读一座园林 + 水巷，宁深勿杂。",
+        daysPlan: [
+          { day: "D1 上海", items: ["外滩万国建筑群对望陆家嘴", "下午武康路 / 衡复风貌漫步", "夜：外滩灯光（19:00 后）"] },
+          { day: "D2 苏州", items: ["高铁抵苏 → 拙政园早场（空间开合与借景）", "苏州博物馆（需预约）", "平江路摇橹船 / 评弹"] },
+          { day: "D3 苏州", items: ["留园或网师园对照小园尺度", "山塘街或虎丘选一", "傍晚返沪"] },
+        ],
+        tips: ["拙政园、苏博务必提前预约", "园林上午人少", "住平江路附近便于步行串联"],
+      },
+      en: {
+        title: "Shanghai · Suzhou",
+        days: "3 days",
+        sub: "Bund façades × Humble Administrator’s Garden / Pingjiang narrative",
+        highlights: ["The Bund", "Wukang Road", "Humble Administrator’s Garden", "Pingjiang Road"],
+        summary: "~30 min HSR: Shanghai for façades and street scale; Suzhou for one deep garden + water lanes—depth over checklist.",
+        daysPlan: [
+          { day: "D1 Shanghai", items: ["Bund historic façades facing Lujiazui", "Afternoon Wukang / Hengfu walk", "Night: Bund lights after 19:00"] },
+          { day: "D2 Suzhou", items: ["HSR → Humble Administrator’s Garden early (borrowed views & enclosure)", "Suzhou Museum (reserve)", "Pingjiang boat / pingtan"] },
+          { day: "D3 Suzhou", items: ["Lingering or Master of Nets as small-garden contrast", "Shantang or Tiger Hill—pick one", "Return to Shanghai evening"] },
+        ],
+        tips: ["Reserve garden & museum early", "Gardens are quieter before 10am", "Stay near Pingjiang for walkable days"],
+      },
+    },
+    {
+      key: "lingnan",
+      img: "https://images.unsplash.com/photo-1474181487882-7abf9d529cbb?w=700&q=80",
+      zh: {
+        title: "广深 · 岭南文化",
+        days: "4 日",
+        sub: "陈家祠骑楼早茶 × 南头古城与当代深圳",
+        highlights: ["陈家祠", "永庆坊骑楼", "早茶", "南头古城"],
+        summary: "广州西关读岭南建筑与广府生活，深圳南头读深港历史之根，对照当代都市，避免只逛商场。",
+        daysPlan: [
+          { day: "D1 广州", items: ["陈家祠（木石砖雕 · 岭南建筑明珠）", "沙面欧陆建筑漫步", "夜：珠江边或西堤"] },
+          { day: "D2 广州西关", items: ["老字号早茶（陶陶居/莲香楼等）", "永庆坊 → 恩宁路骑楼", "上下九 / 荔枝湾涌"] },
+          { day: "D3 抵深", items: ["高铁/城际赴深圳", "南头古城（县衙、宗祠、骑楼街巷）", "毗邻中山公园慢走"] },
+          { day: "D4 深圳", items: ["南山博物馆或当代文化空间", "海岸城/深圳湾天际线对照", "返程"] },
+        ],
+        tips: ["早茶建议工作日错峰", "呈现岭南生活勿猎奇化", "广深城际密集，可当日往返调整"],
+      },
+      en: {
+        title: "Guangzhou · Shenzhen · Lingnan",
+        days: "4 days",
+        sub: "Chen Clan Academy, qilou & morning tea × Nantou Old Town",
+        highlights: ["Chen Clan Academy", "Yongqing Fang qilou", "Morning tea", "Nantou Old Town"],
+        summary: "Guangzhou Xiguan for Lingnan fabric and Cantonese life; Shenzhen Nantou for deep-Hong Kong roots—contrast with the modern city, not malls only.",
+        daysPlan: [
+          { day: "D1 Guangzhou", items: ["Chen Clan Academy (carving masterpiece)", "Shamian European fabric walk", "Night: Pearl River / West Bund"] },
+          { day: "D2 Xiguan", items: ["Classic morning tea (Taotaoju / Lianxianglou etc.)", "Yongqing Fang → Enning qilou", "Shangxiajiu / Lychee Bay"] },
+          { day: "D3 To Shenzhen", items: ["HSR / intercity to SZ", "Nantou Old Town (yamen, ancestral halls, lanes)", "Zhongshan Park stroll"] },
+          { day: "D4 Shenzhen", items: ["Nanshan Museum or contemporary space", "Bay skyline contrast", "Depart"] },
+        ],
+        tips: ["Morning tea is calmer on weekdays", "Portray Lingnan life respectfully", "Intercity trains are frequent—adjust flexibly"],
+      },
+    },
+    {
+      key: "gz-gx",
+      img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=700&q=80",
+      zh: {
+        title: "贵州 · 广西",
+        days: "8–9 日",
+        sub: "黄果树 / 苗侗村寨 × 漓江阳朔 / 龙脊梯田",
+        highlights: ["黄果树", "肇兴侗寨", "漓江", "龙脊梯田"],
+        summary: "黔桂山水与村寨联线：贵州侧重黄果树与苗侗聚落，广西侧重漓江、阳朔与龙脊。民族志视角，拒绝猎奇。",
+        daysPlan: [
+          { day: "D1–2 贵州自然", items: ["贵阳集结 → 黄果树（大瀑布 + 天星桥）", "可选荔波小七孔"] },
+          { day: "D3–5 黔东南", items: ["西江千户苗寨（尊重礼仪，少扰民）", "肇兴侗寨鼓楼群 / 侗族大歌", "可选岜沙等村寨，避免舞台化猎奇"] },
+          { day: "D6 转入广西", items: ["高铁/公路赴桂林或从江方向衔接"] },
+          { day: "D7 漓江阳朔", items: ["磨盘山码头漓江游船精华段", "阳朔遇龙河 / 西街（控制节奏）"] },
+          { day: "D8–9 龙脊", items: ["龙脊梯田（金坑或平安）", "黄洛等村寨文化体验", "返桂林散团"] },
+        ],
+        tips: ["村寨摄影先征得同意", "雨季注意山路", "行程长，建议含 1 个休整半日", "与当地文化持有者视角对齐"],
+      },
+      en: {
+        title: "Guizhou · Guangxi",
+        days: "8–9 days",
+        sub: "Huangguoshu / Miao–Dong villages × Li River / Longji terraces",
+        highlights: ["Huangguoshu", "Zhaoxing Dong", "Li River", "Longji terraces"],
+        summary: "Mountains and villages: Guizhou for falls and Miao–Dong settlements; Guangxi for Li River, Yangshuo, Longji—ethnographic care, no exoticizing.",
+        daysPlan: [
+          { day: "D1–2 Guizhou nature", items: ["Guiyang → Huangguoshu (falls + Tianxingqiao)", "Optional Libo Xiaoqikong"] },
+          { day: "D3–5 Qiandongnan", items: ["Xijiang Miao village (respect local etiquette)", "Zhaoxing Dong drum towers / grand song", "Optional Basha—avoid staged exotic shows"] },
+          { day: "D6 Into Guangxi", items: ["HSR/road link toward Guilin or Congjiang"] },
+          { day: "D7 Li River & Yangshuo", items: ["Mopanshan pier classic Li River cruise", "Yulong River / West Street—keep a calm pace"] },
+          { day: "D8–9 Longji", items: ["Longji terraces (Jinkeng or Ping’an)", "Village cultural visit", "Return via Guilin"] },
+        ],
+        tips: ["Ask before photographing people", "Watch mountain roads in rainy season", "Build in a rest half-day", "Align storytelling with local cultural holders"],
+      },
+    },
+  ];
+
+  const cities = {
+    北京: {
+      orb: { zh: "京", en: "BJ" },
+      title: { zh: "今天去哪，北京？", en: "Where to today, Beijing?" },
+      desc: {
+        zh: "优先故宫空间序列、中轴线秩序，以及胡同里的生活文化体验——看懂皇城如何被一条轴线与无数巷弄组织起来。",
+        en: "Prioritize the Forbidden City’s spatial sequence, the Central Axis, and hutong life—how one axis and countless lanes organize the imperial city.",
+      },
+      suggests: [
+        {
+          label: { zh: "故宫半天空间叙事", en: "Half-day Palace narrative" },
+          prompt: {
+            zh: "帮我规划故宫半天深度游，按中轴线与院落序列讲解空间",
+            en: "Plan a half-day Forbidden City visit focusing on the axis and courtyard sequence",
+          },
+        },
+        {
+          label: { zh: "中轴线 + 胡同", en: "Axis + hutong" },
+          prompt: {
+            zh: "串联中轴线关键节点与周边胡同文化体验，别只打卡拍照",
+            en: "Link Central Axis nodes with nearby hutong culture—not just photo stops",
+          },
+        },
+        {
+          label: { zh: "皇城一日对照", en: "Imperial city contrast day" },
+          prompt: {
+            zh: "一天对比故宫礼仪空间与胡同生活空间的差异",
+            en: "One day contrasting Palace ritual space with hutong living space",
+          },
+        },
+      ],
+      trip: {
+        img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80",
+        title: { zh: "北京中轴与故宫 · 2 日", en: "Beijing Axis & Palace · 2 days" },
+        sub: { zh: "故宫 → 中轴线 → 胡同文化体验", en: "Palace → Central Axis → Hutong culture" },
+      },
+      mapPins: [
+        { left: "48%", top: "28%", label: { zh: "故宫", en: "Palace" } },
+        { left: "48%", top: "42%", label: { zh: "中轴", en: "Axis" } },
+        { left: "36%", top: "48%", label: { zh: "什刹海", en: "Shichahai" } },
+        { left: "58%", top: "52%", label: { zh: "南锣", en: "Nanluogu" } },
+      ],
+      places: [
+        { tag: { zh: "空间叙事", en: "Spatial" }, tagClass: "accent", title: { zh: "故宫博物院", en: "Forbidden City" }, sub: { zh: "中轴序列 · 院落节奏", en: "Axis sequence · courtyards" }, img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600&q=80", prompt: { zh: "用空间叙事讲故宫：中轴线、院落开合与礼仪动线", en: "Narrate the Forbidden City: axis, courtyard rhythm, ritual paths" } },
+        { tag: { zh: "轴线", en: "Axis" }, title: { zh: "北京中轴线", en: "Beijing Central Axis" }, sub: { zh: "城市秩序 · 礼仪地理", en: "Urban order · ritual geography" }, img: "https://images.unsplash.com/photo-1584464491033-06628f3a6b11?w=600&q=80", prompt: { zh: "讲解北京中轴线如何组织城市与人的身体路径", en: "Explain how the Central Axis organizes the city and the body" } },
+        { tag: { zh: "文化体验", en: "Culture" }, title: { zh: "胡同漫游", en: "Hutong walk" }, sub: { zh: "生活尺度 · 巷弄肌理", en: "Lived scale · lane fabric" }, img: "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80", prompt: { zh: "安排胡同文化体验：四合院尺度、生活节奏、避免网红打卡堆砌", en: "Plan a hutong experience: courtyard scale, daily pace—not influencer checklists" } },
+        { tag: { zh: "Attraction", en: "Attraction" }, title: { zh: "景山 / 端门对照", en: "Jingshan overlook" }, sub: { zh: "俯瞰中轴 · 视线收束", en: "Axis overlook · visual closure" }, img: "https://images.unsplash.com/photo-1555921015-5532091f6026?w=600&q=80", prompt: { zh: "从景山看中轴线：视线如何收束皇城秩序", en: "From Jingshan: how the view closes imperial order" } },
+        { tag: { zh: "文化体验", en: "Culture" }, title: { zh: "什刹海 · 烟袋斜街", en: "Shichahai · Yandai" }, sub: { zh: "水岸胡同 · 市井层", en: "Waterfront hutong life" }, img: "https://images.unsplash.com/photo-1474181487882-7abf9d529cbb?w=600&q=80", prompt: { zh: "什刹海与烟袋斜街：胡同亲水生活如何展开", en: "Shichahai & Yandai: how hutong life meets water" } },
+        { tag: { zh: "Attraction", en: "Attraction" }, title: { zh: "天坛（可选延伸）", en: "Temple of Heaven (optional)" }, sub: { zh: "祭天空间 · 象征秩序", en: "Ritual space · symbolic order" }, img: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=600&q=80", prompt: { zh: "若时间允许，如何把天坛作为中轴礼仪空间延伸", en: "If time allows, extend the axis narrative to the Temple of Heaven" } },
+      ],
+    },
+    苏州: {
+      orb: { zh: "苏", en: "SZ" },
+      title: { zh: "今天去哪，苏州？", en: "Where to today, Suzhou?" },
+      desc: {
+        zh: "以苏州园林为核心：留园、拙政园、网师园等如何用墙、廊、水、借景控制视线与身体路径——园林不是拍照背景，是可被读懂的空间剧本。",
+        en: "Focus on classical gardens: how walls, corridors, water, and borrowed views script what you see—gardens are spatial narratives, not photo backdrops.",
+      },
+      suggests: [
+        { label: { zh: "拙政园空间导读", en: "Humble Administrator’s guide" }, prompt: { zh: "拙政园半天：按空间开合与借景逻辑讲解，不要景点清单", en: "Half-day Humble Administrator’s Garden by enclosure and borrowed views—not a checklist" } },
+        { label: { zh: "留园 vs 网师园", en: "Lingering vs Master of Nets" }, prompt: { zh: "对比留园与网师园的尺度与动线差异", en: "Compare Lingering Garden and Master of Nets in scale and path" } },
+        { label: { zh: "园林半日慢走", en: "Slow garden half-day" }, prompt: { zh: "苏州园林半日慢游，适合两人，预算适中", en: "A slow half-day garden visit for two, moderate budget" } },
+      ],
+      trip: {
+        img: "https://images.unsplash.com/photo-1555921015-5532091f6026?w=800&q=80",
+        title: { zh: "苏州园林叙事 · 1–2 日", en: "Suzhou garden narrative · 1–2 days" },
+        sub: { zh: "拙政园 → 留园 / 网师园", en: "Humble Administrator’s → Lingering / Master of Nets" },
+      },
+      mapPins: [
+        { left: "42%", top: "40%", label: { zh: "拙政园", en: "Humble" } },
+        { left: "58%", top: "36%", label: { zh: "留园", en: "Lingering" } },
+        { left: "50%", top: "55%", label: { zh: "网师园", en: "Nets" } },
+        { left: "35%", top: "58%", label: { zh: "平江路", en: "Pingjiang" } },
+      ],
+      places: [
+        { tag: { zh: "空间叙事", en: "Spatial" }, tagClass: "accent", title: { zh: "拙政园", en: "Humble Administrator’s" }, sub: { zh: "开合 · 借景 · 水院", en: "Enclosure · borrowed views · water" }, img: "https://images.unsplash.com/photo-1555921015-5532091f6026?w=600&q=80", prompt: { zh: "拙政园空间叙事：如何用墙与廊控制看见与被看见", en: "Humble Administrator’s: walls and corridors controlling seeing" } },
+        { tag: { zh: "园林", en: "Garden" }, title: { zh: "留园", en: "Lingering Garden" }, sub: { zh: "序列转折 · 大中见小", en: "Sequence turns · vast in small" }, img: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=600&q=80", prompt: { zh: "留园的空间序列与转折如何设计", en: "How Lingering Garden designs sequence and turns" } },
+        { tag: { zh: "园林", en: "Garden" }, title: { zh: "网师园", en: "Master of Nets" }, sub: { zh: "小园极致 · 尺度精微", en: "Tiny garden perfection" }, img: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&q=80", prompt: { zh: "网师园为何能在极小尺度里完成完整园林体验", en: "Why Master of Nets feels complete at tiny scale" } },
+        { tag: { zh: "巷弄", en: "Lane" }, title: { zh: "平江路", en: "Pingjiang Road" }, sub: { zh: "水巷生活 · 城市肌理", en: "Water lane life · urban fabric" }, img: "https://images.unsplash.com/photo-1474181487882-7abf9d529cbb?w=600&q=80", prompt: { zh: "园林之外，平江路水巷如何承接苏州日常", en: "Beyond gardens: how Pingjiang carries everyday Suzhou" } },
+        { tag: { zh: "可选", en: "Optional" }, title: { zh: "狮子林", en: "Lion Grove" }, sub: { zh: "叠山路径 · 游戏性", en: "Rockery paths · playful maze" }, img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80", prompt: { zh: "狮子林叠山路径的游戏性与空间迷惑如何解读", en: "Reading Lion Grove’s playful rockery maze" } },
+        { tag: { zh: "文化体验", en: "Culture" }, title: { zh: "园林茶歇节奏", en: "Garden tea pause" }, sub: { zh: "停 · 看 · 转 · 再看", en: "Pause · see · turn · see again" }, img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80", prompt: { zh: "园林游览中的停驻点与茶歇如何安排才不破坏节奏", en: "Where to pause for tea without breaking garden rhythm" } },
+      ],
+    },
+    上海: {
+      orb: { zh: "沪", en: "SH" },
+      title: { zh: "今天去哪，上海？", en: "Where to today, Shanghai?" },
+      desc: {
+        zh: "上海线侧重城市文化体验：外滩天际线与历史建筑对话、街巷与当代公共文化空间——用建筑学眼光读懂「海派」如何被空间生产出来。",
+        en: "Shanghai as cultural experience: Bund façades facing the skyline, lanes, and contemporary cultural spaces—how “Haipai” is produced spatially.",
+      },
+      suggests: [
+        { label: { zh: "外滩建筑对照", en: "Bund façade dialogue" }, prompt: { zh: "外滩历史建筑与对岸天际线的空间对照导读", en: "Guide the Bund historic façades against the Pudong skyline" } },
+        { label: { zh: "武康路文化漫步", en: "Wukang culture walk" }, prompt: { zh: "武康路 / 衡复风貌区文化体验半日，侧重建筑与街道尺度", en: "Half-day Wukang / Hengfu walk focused on buildings and street scale" } },
+        { label: { zh: "海派一日", en: "Haipai day" }, prompt: { zh: "上海一日：历史建筑 + 当代文化空间，不要纯购物线", en: "One Shanghai day: historic fabric + contemporary culture—not shopping only" } },
+      ],
+      trip: {
+        img: "https://images.unsplash.com/photo-1545893835-abaa50cbe628?w=800&q=80",
+        title: { zh: "上海文化体验 · 1–2 日", en: "Shanghai culture · 1–2 days" },
+        sub: { zh: "外滩建筑 → 衡复风貌 → 当代文化", en: "Bund → Hengfu → contemporary culture" },
+      },
+      mapPins: [
+        { left: "62%", top: "40%", label: { zh: "外滩", en: "Bund" } },
+        { left: "70%", top: "38%", label: { zh: "陆家嘴", en: "Lujiazui" } },
+        { left: "40%", top: "52%", label: { zh: "武康路", en: "Wukang" } },
+        { left: "48%", top: "58%", label: { zh: "文化空间", en: "Culture" } },
+      ],
+      places: [
+        { tag: { zh: "空间叙事", en: "Spatial" }, tagClass: "accent", title: { zh: "外滩建筑群", en: "The Bund" }, sub: { zh: "岸线 · 立面 · 对望", en: "Waterfront · façades · facing" }, img: "https://images.unsplash.com/photo-1545893835-abaa50cbe628?w=600&q=80", prompt: { zh: "外滩：历史立面序列与对岸天际线如何形成对话", en: "Bund: historic façade sequence in dialogue with the skyline" } },
+        { tag: { zh: "风貌区", en: "District" }, title: { zh: "武康路 / 衡复", en: "Wukang / Hengfu" }, sub: { zh: "街道尺度 · 海派生活", en: "Street scale · Haipai life" }, img: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&q=80", prompt: { zh: "武康路文化漫步：街道宽度、建筑退界与生活氛围", en: "Wukang walk: street width, setbacks, lived atmosphere" } },
+        { tag: { zh: "文化体验", en: "Culture" }, title: { zh: "当代文化空间", en: "Contemporary space" }, sub: { zh: "博物馆 / 艺术空间", en: "Museum / art space" }, img: "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?w=600&q=80", prompt: { zh: "推荐一个上海当代文化空间，并讲解展陈与流线", en: "Recommend a Shanghai contemporary cultural space and its flow" } },
+        { tag: { zh: "城市", en: "City" }, title: { zh: "陆家嘴天际线", en: "Lujiazui skyline" }, sub: { zh: "现代性景观 · 观景位置", en: "Modern skyline · viewpoints" }, img: "https://images.unsplash.com/photo-1474181487882-7abf9d529cbb?w=600&q=80", prompt: { zh: "从哪里看陆家嘴天际线最能理解上海现代性", en: "Best viewpoints to read Shanghai modernity in the skyline" } },
+        { tag: { zh: "巷弄", en: "Lane" }, title: { zh: "石库门肌理（选）", en: "Shikumen fabric (opt.)" }, sub: { zh: "里弄生活 · 城市基因", en: "Lilong life · urban DNA" }, img: "https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=600&q=80", prompt: { zh: "石库门/里弄如何作为上海城市基因被体验", en: "How shikumen / lilong can be experienced as Shanghai’s urban DNA" } },
+        { tag: { zh: "体验", en: "Experience" }, title: { zh: "夜景与节奏", en: "Night rhythm" }, sub: { zh: "何时看 · 如何走", en: "When to look · how to walk" }, img: "https://images.unsplash.com/photo-1480796927426-f609979314bd?w=600&q=80", prompt: { zh: "上海夜景文化体验：路线节奏与停留点", en: "Shanghai night culture: route pace and pause points" } },
+      ],
+    },
+  };
+
