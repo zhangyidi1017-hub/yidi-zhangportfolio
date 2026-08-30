@@ -3,6 +3,8 @@ dist/
 .DS_Store
 *.log
 .vite/
+output/
+tmp/
 portfolio.html
 /prototype/
 /demos/
