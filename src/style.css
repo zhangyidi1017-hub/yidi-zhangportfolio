@@ -1370,6 +1370,10 @@ img { display: block; max-width: 100%; }
   left: -14px;
 }
 
+.work-knowledge-module {
+  margin-top: 20px;
+}
+
 @media (max-width: 809px) {
   .work-brief__results {
     grid-template-columns: 1fr;

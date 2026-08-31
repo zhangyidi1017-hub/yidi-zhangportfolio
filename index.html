@@ -295,14 +295,38 @@
                 </section>
 
                 <section class="work-brief__block">
-                  <h4 class="mono work-brief__label">项目详情</h4>
-                  <p class="work-brief__text">多模态解析施工方文本，自动抽取工序和工期，生成甘特图及项目报告。非审查模块采用 AI Agent + MCP 实现多步骤自动化决策参考。</p>
+                  <h4 class="mono work-brief__label">核心产品模块</h4>
+                  <ul class="work-brief__list">
+                    <li><strong>智能审查：</strong>将复杂审批规则转化为规则引擎 Skills，支持年度投资项目评估入库、债券资金申请评估与项目双算审核。</li>
+                    <li><strong>建设监测：</strong>多模态解析施工文本，自动抽取工序和工期，生成甘特图及项目报告。</li>
+                    <li><strong>知识问答：</strong>以 RAG 为核心构建建筑规范与历史项目知识库，为项目审查和决策提供可溯源的专业问答。</li>
+                    <li><strong>决策 Agent：</strong>非审查模块采用 AI Agent + MCP 编排多步骤任务，自动生成决策参考。</li>
+                  </ul>
+                </section>
+
+                <section class="work-brief__block">
+                  <h4 class="mono work-brief__label">RAG 知识问答模块</h4>
+                  <ul class="work-brief__list">
+                    <li>治理 1000+ 专业设计规范、方案与设计指引，采用重叠分块与 Embedding 构建向量检索链路。</li>
+                    <li>通过 Query 重写、RAG Fusion 与 Rerank 优化召回率、准确率和答案语义连贯性。</li>
+                    <li>建立 500+ 标准问答测试集，覆盖准确率、召回率、响应时间与引用有效性等指标。</li>
+                  </ul>
+                </section>
+
+                <section class="work-brief__block work-brief__block--results">
+                  <h4 class="mono work-brief__label">项目成果</h4>
+                  <ul class="work-brief__results">
+                    <li>完成 100+ 项目数据治理</li>
+                    <li>标准问答准确率 75%</li>
+                    <li>规范检索时间缩短 80%</li>
+                  </ul>
                 </section>
               </div>
 
               <ul class="work__tags mono">
                 <li>产品设计</li>
                 <li>数据治理</li>
+                <li>RAG</li>
                 <li>AI Agent</li>
                 <li>MCP</li>
               </ul>
@@ -325,67 +349,14 @@
                   loading="lazy"
                 ></iframe>
               </div>
-            </div>
-          </div>
-        </article>
 
-        <!-- Work 05 -->
-        <article class="work" data-work="5">
-          <div class="work__label mono">产品 05</div>
-          <div class="work__grid">
-            <div class="work__info">
-              <h2 class="work__title">基于 RAG 技术的建筑规范智能问答系统</h2>
-
-              <div class="work-brief work-brief--inline">
-                <section class="work-brief__block">
-                  <h4 class="mono work-brief__label">背景</h4>
-                  <p class="work-brief__text">针对建筑规范检索路径长、效率低、历史经验难复用等痛点，基于 RAG 技术搭建知识问答系统。</p>
-                </section>
-
-                <section class="work-brief__block">
-                  <h4 class="mono work-brief__label">产品设计</h4>
-                  <ul class="work-brief__list">
-                    <li>以 ChatGLM 3.0 为基座，RAG 为核心技术。</li>
-                    <li>收集 1000+ 专业设计规范、方案与设计指引，清洗后构建标准化数据集。</li>
-                    <li>采用语义理解模型与重叠分块策略处理文本，经向量数据库 Embedding 实现语义检索。</li>
-                    <li>通过 Query 重写与 RAG 融合优化检索策略，提升系统召回率与准确率。</li>
-                  </ul>
-                </section>
-
-                <section class="work-brief__block">
-                  <h4 class="mono work-brief__label">测试和优化</h4>
-                  <ul class="work-brief__list">
-                    <li>准备标准问答数据集用于模型评测，建立准确率、响应时间、召回率、语义连贯性等功能指标。</li>
-                    <li>针对查询模糊、召回不足等问题，通过查询重写、意图识别、RAG 融合与重排序持续优化。</li>
-                  </ul>
-                </section>
-
-                <section class="work-brief__block work-brief__block--results">
-                  <h4 class="mono work-brief__label">运营价值</h4>
-                  <ul class="work-brief__results">
-                    <li>500+ 标准问答对，准确率 75%</li>
-                    <li>覆盖 100% 设计部门</li>
-                    <li>规范检索时间缩短 80%</li>
-                  </ul>
-                </section>
-              </div>
-
-              <ul class="work__tags mono">
-                <li>RAG</li>
-                <li>向量检索</li>
-                <li>RAG 融合</li>
-                <li>重排序</li>
-              </ul>
-            </div>
-
-            <div class="work__visual">
-              <div class="kb-chat" aria-label="建筑规范知识库对话封面">
+              <div class="kb-chat work-knowledge-module" aria-label="平台 RAG 建筑规范知识问答模块">
                 <div class="kb-chat__bar">
                   <div class="kb-chat__identity">
                     <span class="kb-chat__dot" aria-hidden="true"></span>
                     <div>
-                      <p class="kb-chat__title">建筑规范知识库</p>
-                      <p class="mono kb-chat__sub">RAG · ChatGLM 3.0 · 在线</p>
+                      <p class="kb-chat__title">建筑规范知识库 · 平台内置模块</p>
+                      <p class="mono kb-chat__sub">RAG · QUERY REWRITE · RERANK · 在线</p>
                     </div>
                   </div>
                   <span class="mono kb-chat__badge">1000+ 规范</span>
@@ -395,7 +366,6 @@
                   <div class="kb-chat__msg kb-chat__msg--user">
                     <p>高层建筑疏散楼梯的最小净宽度是多少？</p>
                   </div>
-
                   <div class="kb-chat__msg kb-chat__msg--bot">
                     <p>依据《建筑设计防火规范》GB 50016，高层建筑疏散楼梯间及前室门的净宽度不应小于 <strong>1.20 m</strong>；疏散走道净宽不应小于 <strong>1.40 m</strong>。</p>
                     <div class="kb-chat__sources">
@@ -404,22 +374,10 @@
                       <span class="kb-chat__chip">相似度 0.92</span>
                     </div>
                   </div>
-
-                  <div class="kb-chat__msg kb-chat__msg--user">
-                    <p>住宅套内卫生间的最小面积要求？</p>
-                  </div>
-
-                  <div class="kb-chat__msg kb-chat__msg--bot">
-                    <p>按《住宅设计规范》GB 50096，设便器、洗浴器、洗面器三件卫生设备的卫生间使用面积不应小于 <strong>3 m²</strong>。</p>
-                    <div class="kb-chat__sources">
-                      <span class="mono">来源</span>
-                      <span class="kb-chat__chip">GB 50096-2011 §5.4.3</span>
-                    </div>
-                  </div>
                 </div>
 
                 <div class="kb-chat__composer">
-                  <span class="kb-chat__placeholder">输入规范相关问题，检索知识库…</span>
+                  <span class="kb-chat__placeholder">输入项目或规范问题，检索平台知识库…</span>
                   <span class="kb-chat__send mono">发送</span>
                 </div>
               </div>
@@ -427,9 +385,9 @@
           </div>
         </article>
 
-        <!-- Work 06 -->
-        <article class="work" data-work="6">
-          <div class="work__label mono">产品 06</div>
+        <!-- Work 05 -->
+        <article class="work" data-work="5">
+          <div class="work__label mono">产品 05</div>
           <div class="work__grid">
             <div class="work__info">
               <h2 class="work__title">AI 图像生成辅助平台 ARCHI-AI</h2>
