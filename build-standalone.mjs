@@ -34,8 +34,8 @@ const html = `<!DOCTYPE html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>张贻娣 — AI 产品经理</title>
-  <meta name="description" content="张贻娣 — AI 产品经理作品集" />
+  <title>张贻娣 — AGENT 产品经理</title>
+  <meta name="description" content="张贻娣 — AGENT 产品经理作品集" />
   <style>
 ${lenisCss}
 ${css}

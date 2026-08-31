@@ -1,6 +1,6 @@
-# 张贻娣 — AI 产品经理作品集
+# 张贻娣 — AGENT 产品经理作品集
 
-参考 [Wildy Riftian](https://www.wildyriftian.com/) 档案风设计与交互，展示 AI 产品经理个人作品与经历。
+参考 [Wildy Riftian](https://www.wildyriftian.com/) 档案风设计与交互，展示 AGENT 产品经理个人作品与经历。
 
 ## 启动
 
