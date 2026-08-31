@@ -845,12 +845,23 @@ img { display: block; max-width: 100%; }
 }
 
 .work__label {
+  position: relative;
   color: var(--text);
   margin-bottom: 24px;
-  padding-left: 14px;
+  padding-left: 0;
   font-size: 1.375rem;
-  border-left: 4px solid var(--accent);
+  border-left: 0;
   line-height: 1.2;
+}
+
+.work__label::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent);
 }
 
 .work__grid {
@@ -1331,6 +1342,32 @@ img { display: block; max-width: 100%; }
 
 .work-brief__block--results {
   margin-top: 2px;
+}
+
+/* Keep every text element in the project summary on one left baseline. */
+.work__info,
+.work__title,
+.work-brief--inline,
+.work-brief--inline .work-brief__block,
+.work-brief--inline .work-brief__label,
+.work-brief--inline .work-brief__text,
+.work-brief--inline .work-brief__list,
+.work-brief--inline .work-brief__results,
+.work__tags {
+  text-align: left;
+}
+
+.work-brief.work-brief--inline {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.work-brief--inline .work-brief__list li {
+  padding-left: 0;
+}
+
+.work-brief--inline .work-brief__list li::before {
+  left: -14px;
 }
 
 @media (max-width: 809px) {
