@@ -234,29 +234,51 @@
           <div class="work__label mono">产品 03</div>
           <div class="work__grid">
             <div class="work__info">
-              <h2 class="work__title">观境 GUANJING · AI 城市旅行 Agent</h2>
+              <h2 class="work__title">观境 GUANJING · 入境城市旅行 Agent</h2>
 
               <div class="work-brief work-brief--inline">
                 <section class="work-brief__block">
                   <h4 class="mono work-brief__label">项目背景</h4>
-                  <p class="work-brief__text">面向城市深度旅行场景打造 AI 原生旅行产品，以汕头为首个试点，将目的地灵感发现、偏好沟通与行程规划整合为一体化体验，让用户从“想去哪里”自然过渡到“如何抵达与游览”。</p>
+                  <p class="work-brief__text">面向来华入境游客，建设覆盖“旅行灵感发现—需求理解—行程规划—旅中伴游—内容资产沉淀”的智能城市旅行系统。产品以北京、深圳、成都、上海、西安、广西等重点目的地为核心，整合城市文化、景点、美食、交通与服务信息，并设计城市推荐 Agent、行程规划 Agent、旅中伴游 Agent 和旅行内容生成 Agent，帮助游客降低跨语言、跨文化环境下的信息检索与决策成本，获得更具在地感且可执行的中国旅行方案。</p>
                 </section>
 
                 <section class="work-brief__block">
-                  <h4 class="mono work-brief__label">产品设计</h4>
+                  <h4 class="mono work-brief__label">核心产品能力</h4>
                   <ul class="work-brief__list">
-                    <li>采用左侧导航、中部 Agent 对话、右侧目的地推荐的三栏结构，让探索、决策与规划同步发生。</li>
-                    <li>围绕汕头老城、妈宫、中山公园、博物馆与市井饮食建立本地化内容锚点，强化城市文化辨识度。</li>
-                    <li>通过对话理解旅行偏好，并将景点、美食与路线建议组织为可执行的城市行程。</li>
+                    <li><strong>入境游客需求理解：</strong>通过多轮对话识别出发地、旅行天数、预算、兴趣、同行关系、饮食禁忌与语言偏好，将“想体验真实中国”等模糊诉求转化为可计算的旅行约束和任务目标。</li>
+                    <li><strong>城市旅行知识库：</strong>搭建覆盖城市文化、景点、美食、交通、营业时间、预约规则与入境服务的目的地知识体系；结合 RAG 与结构化标签，建立城市—区域—主题—地点—体验之间的关联，为回答提供可追溯的在地信息。</li>
+                    <li><strong>多城市行程规划：</strong>综合开放时间、地点距离、交通耗时、游览节奏与用户偏好，生成按天、按时段组织的可执行路线；当预算、天气或营业状态变化时，Agent 可识别冲突并动态调整方案。</li>
+                    <li><strong>旅中伴游与工具调用：</strong>围绕“现在去哪、怎么去、吃什么、如何沟通”等即时问题提供上下文连续的陪伴服务，并为地图导航、天气查询、交通换乘、门票预约与翻译等工具预留调用链路。</li>
+                    <li><strong>旅行内容资产生成：</strong>将城市知识与用户行程转化为目的地卡片、路线故事、文化讲解及短视频脚本，沉淀可复用的城市内容资产，支持北京、深圳、成都、上海、西安、广西等目的地持续扩展。</li>
+                  </ul>
+                </section>
+
+                <section class="work-brief__block">
+                  <h4 class="mono work-brief__label">Agent 评测机制</h4>
+                  <ul class="work-brief__list">
+                    <li><strong>知识检索评测：</strong>评估城市信息检索命中率、事实准确性、引用一致性、时效性与错误信息拦截能力。</li>
+                    <li><strong>规划质量评测：</strong>从偏好匹配、时间可行性、路线合理性、预算符合度与文化体验丰富度建立测试集，并通过 Badcase 回流持续优化 Prompt 与规划策略。</li>
+                    <li><strong>Agent 执行评测：</strong>验证意图识别、任务拆解、上下文记忆、工具选择、参数传递及异常降级是否正确，避免出现行程冲突和不可执行建议。</li>
+                    <li><strong>端到端体验评测：</strong>结合行程采纳、用户修改、任务完成、内容收藏及正负向反馈，判断系统是否真正缩短规划时间并提升入境旅行体验。</li>
+                  </ul>
+                </section>
+
+                <section class="work-brief__block work-brief__block--results">
+                  <h4 class="mono work-brief__label">项目成果</h4>
+                  <ul class="work-brief__results">
+                    <li>完成入境旅行 Agent 产品原型与核心交互闭环</li>
+                    <li>建立六大重点目的地的城市内容框架</li>
+                    <li>形成从知识检索到行程生成的评测体系</li>
                   </ul>
                 </section>
               </div>
 
               <ul class="work__tags mono">
-                <li>AI Agent</li>
-                <li>旅行规划</li>
-                <li>对话式交互</li>
-                <li>城市内容</li>
+                <li>AGENT</li>
+                <li>入境旅行</li>
+                <li>RAG</li>
+                <li>多城市规划</li>
+                <li>内容资产</li>
               </ul>
             </div>
             <div class="work__visual">
@@ -273,7 +295,7 @@
                 <iframe
                   class="work-embed__frame"
                   src="./demos/guanjing/index.html"
-                  title="观境 GUANJING AI 城市旅行 Agent 演示"
+                  title="观境 GUANJING 入境城市旅行 Agent 演示"
                   loading="lazy"
                 ></iframe>
               </div>
