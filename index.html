@@ -246,30 +246,31 @@
           <div class="work__label mono">产品 03</div>
           <div class="work__grid">
             <div class="work__info">
-              <h2 class="work__title">观境 GUANJING · 入境城市旅行 Agent</h2>
+              <h2 class="work__title">观境 GUANJING · 城市文化体验 Agent</h2>
 
               <div class="work-brief work-brief--inline">
                 <section class="work-brief__block">
                   <h4 class="mono work-brief__label">项目背景</h4>
-                  <p class="work-brief__text">面向来华入境游客，建设覆盖“旅行灵感发现—需求理解—行程规划—旅中伴游—内容资产沉淀”的智能城市旅行系统。产品以北京、深圳、成都、上海、西安、广西等重点目的地为核心，整合城市文化、景点、美食、交通与服务信息，并设计城市推荐 Agent、行程规划 Agent、旅中伴游 Agent 和旅行内容生成 Agent，帮助游客降低跨语言、跨文化环境下的信息检索与决策成本，获得更具在地感且可执行的中国旅行方案。</p>
+                  <p class="work-brief__text">面向希望深入理解中国城市的入境游客，建设以“城市空间—城市展览—文化体验”为核心的智能旅行产品。产品覆盖北京、深圳、成都、上海、西安、广西等重点目的地，通过城市文化知识库与 Agent，将建筑、街区、艺术机构、博物馆、展览和在地文化活动组织成可探索、可理解、可执行的主题体验；天气、美食、交通等通用旅行信息作为辅助条件，为文化行程提供必要的决策支持。</p>
                 </section>
 
                 <section class="work-brief__block">
                   <h4 class="mono work-brief__label">核心产品能力</h4>
                   <ul class="work-brief__list">
-                    <li><strong>入境游客需求理解：</strong>通过多轮对话识别出发地、旅行天数、预算、兴趣、同行关系、饮食禁忌与语言偏好，将“想体验真实中国”等模糊诉求转化为可计算的旅行约束和任务目标。</li>
-                    <li><strong>城市旅行知识库：</strong>搭建覆盖城市文化、景点、美食、交通、营业时间、预约规则与入境服务的目的地知识体系；结合 RAG 与结构化标签，建立城市—区域—主题—地点—体验之间的关联，为回答提供可追溯的在地信息。</li>
-                    <li><strong>多城市行程规划：</strong>综合开放时间、地点距离、交通耗时、游览节奏与用户偏好，生成按天、按时段组织的可执行路线；当预算、天气或营业状态变化时，Agent 可识别冲突并动态调整方案。</li>
-                    <li><strong>旅中伴游与工具调用：</strong>围绕“现在去哪、怎么去、吃什么、如何沟通”等即时问题提供上下文连续的陪伴服务，并为地图导航、天气查询、交通换乘、门票预约与翻译等工具预留调用链路。</li>
-                    <li><strong>旅行内容资产生成：</strong>将城市知识与用户行程转化为目的地卡片、路线故事、文化讲解及短视频脚本，沉淀可复用的城市内容资产，支持北京、深圳、成都、上海、西安、广西等目的地持续扩展。</li>
+                    <li><strong>文化兴趣理解：</strong>通过多轮对话识别用户对建筑、城市更新、当代艺术、历史遗产、设计、表演与地方生活等主题的偏好，将“想看真实的城市”“想了解当地文化”等模糊诉求转化为主题、空间类型、体验深度和时间节奏等规划条件。</li>
+                    <li><strong>城市空间知识库：</strong>围绕地标建筑、历史街区、城市公共空间、更新项目与社区场所组织知识，记录空间背景、设计脉络、历史变化、开放规则和周边关系，帮助用户理解地点，而不只是抵达地点。</li>
+                    <li><strong>展览与文化体验知识库：</strong>持续沉淀博物馆、美术馆、画廊、艺术园区、临时展览、演出和非遗体验等内容；结合 RAG 与结构化标签，建立“城市—区域—主题—机构—展览—人物—时代”的关联，并保留来源与时效信息。</li>
+                    <li><strong>主题路线规划：</strong>根据文化兴趣、空间距离、开放时间与体验节奏，将分散的城市内容组合为建筑观察、艺术展览、历史街区或地方文化等主题路线；天气、交通、预约和餐饮仅作为路线可执行性的辅助约束。</li>
+                    <li><strong>文化内容资产生成：</strong>将知识库内容转化为城市卡片、空间导览、展览推荐、文化讲解、路线故事及短视频脚本，形成可持续复用的内容资产，并支持重点目的地逐步扩展。</li>
                   </ul>
                 </section>
 
                 <section class="work-brief__block">
                   <h4 class="mono work-brief__label">Agent 评测机制</h4>
                   <ul class="work-brief__list">
-                    <li><strong>知识检索评测：</strong>评估城市信息检索命中率、事实准确性、引用一致性、时效性与错误信息拦截能力。</li>
-                    <li><strong>规划质量评测：</strong>从偏好匹配、时间可行性、路线合理性、预算符合度与文化体验丰富度建立测试集，并通过 Badcase 回流持续优化 Prompt 与规划策略。</li>
+                    <li><strong>知识检索评测：</strong>评估空间、展览与文化内容的检索命中率、事实准确性、来源一致性、内容时效性和知识关联完整度。</li>
+                    <li><strong>内容质量评测：</strong>从文化解释准确性、信息密度、主题相关性、在地独特性和表达易懂度建立测试集，避免输出泛化、同质化的城市介绍。</li>
+                    <li><strong>规划质量评测：</strong>评估主题匹配、空间关联、时间可行性、路线合理性与文化体验丰富度，并通过 Badcase 回流持续优化检索、Prompt 和规划策略。</li>
                     <li><strong>Agent 执行评测：</strong>验证意图识别、任务拆解、上下文记忆、工具选择、参数传递及异常降级是否正确，避免出现行程冲突和不可执行建议。</li>
                     <li><strong>端到端体验评测：</strong>结合行程采纳、用户修改、任务完成、内容收藏及正负向反馈，判断系统是否真正缩短规划时间并提升入境旅行体验。</li>
                   </ul>
@@ -278,19 +279,19 @@
                 <section class="work-brief__block work-brief__block--results">
                   <h4 class="mono work-brief__label">项目成果</h4>
                   <ul class="work-brief__results">
-                    <li>完成入境旅行 Agent 产品原型与核心交互闭环</li>
-                    <li>建立六大重点目的地的城市内容框架</li>
-                    <li>形成从知识检索到行程生成的评测体系</li>
+                    <li>完成城市文化体验 Agent 产品原型与交互闭环</li>
+                    <li>建立六大重点目的地的空间与文化内容框架</li>
+                    <li>形成从文化知识检索到主题路线生成的评测体系</li>
                   </ul>
                 </section>
               </div>
 
               <ul class="work__tags mono">
                 <li>AGENT</li>
-                <li>入境旅行</li>
+                <li>城市空间</li>
+                <li>展览文化</li>
                 <li>RAG</li>
-                <li>多城市规划</li>
-                <li>内容资产</li>
+                <li>主题路线</li>
               </ul>
             </div>
             <div class="work__visual">
@@ -307,7 +308,7 @@
                 <iframe
                   class="work-embed__frame"
                   src="./demos/guanjing/index.html"
-                  title="观境 GUANJING 入境城市旅行 Agent 演示"
+                  title="观境 GUANJING 城市文化体验 Agent 演示"
                   loading="lazy"
                 ></iframe>
               </div>
