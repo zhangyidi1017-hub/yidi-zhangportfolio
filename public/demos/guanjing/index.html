@@ -325,12 +325,14 @@
       ["langBtnTop", "langBtnTrips", "langBtnTripsList", "langBtnInspire", "langBtnSaved"].forEach((id) => {
         const btn = document.getElementById(id);
         if (!btn || !side) return;
-        btn.addEventListener("click", () => side.click());
         const sync = () => {
           btn.textContent = side.textContent;
           btn.setAttribute("aria-label", side.getAttribute("aria-label") || "");
         };
-        new MutationObserver(sync).observe(side, { characterData: true, childList: true, subtree: true, attributes: true });
+        btn.addEventListener("click", () => {
+          side.click();
+          window.setTimeout(sync, 0);
+        });
         sync();
       });
     })();
