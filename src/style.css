@@ -1,26 +1,26 @@
 /* ===== Tokens ===== */
 :root {
-  --bg: #f7a6b7;
-  --bg-card: rgba(255, 242, 246, 0.68);
-  --accent: #cf174b;
-  --accent-mid: #e04470;
-  --accent-deep: #8f173c;
+  --bg: #050305;
+  --bg-card: rgba(40, 19, 28, 0.72);
+  --accent: #ff4b7d;
+  --accent-mid: #ff7198;
+  --accent-deep: #d71950;
   --accent-soft: #ffd0dc;
   --yellow: var(--accent);
-  --accent-gradient: linear-gradient(135deg, #a90f3d 0%, #d71950 48%, #f05b82 100%);
+  --accent-gradient: linear-gradient(135deg, #ff2f6c 0%, #ff5d87 48%, #ff9ab5 100%);
   --bg-gradient:
-    radial-gradient(ellipse 100% 70% at 5% -5%, rgba(255, 225, 233, 0.86) 0%, transparent 52%),
-    radial-gradient(ellipse 82% 62% at 100% 10%, rgba(255, 188, 207, 0.62) 0%, transparent 55%),
-    radial-gradient(ellipse 76% 52% at 48% 100%, rgba(234, 89, 131, 0.2) 0%, transparent 62%),
-    linear-gradient(160deg, #fbc0cc 0%, #f6a3b5 46%, #f9b2c2 100%);
-  --text: #681634;
-  --text-muted: rgba(104, 22, 52, 0.72);
-  --grid: rgba(190, 20, 67, 0.12);
-  --border: rgba(190, 20, 67, 0.19);
-  --glass: rgba(255, 255, 255, 0.28);
-  --glass-strong: rgba(255, 255, 255, 0.46);
-  --glass-border: rgba(255, 255, 255, 0.68);
-  --glass-shadow: 0 24px 70px rgba(130, 22, 56, 0.16), 0 6px 20px rgba(255, 255, 255, 0.2);
+    radial-gradient(ellipse 90% 64% at 5% -5%, rgba(184, 18, 66, 0.24) 0%, transparent 54%),
+    radial-gradient(ellipse 78% 56% at 100% 12%, rgba(255, 65, 119, 0.16) 0%, transparent 58%),
+    radial-gradient(ellipse 70% 48% at 50% 100%, rgba(120, 20, 54, 0.13) 0%, transparent 64%),
+    linear-gradient(160deg, #050305 0%, #0b0508 48%, #030203 100%);
+  --text: #fff1f5;
+  --text-muted: rgba(255, 225, 234, 0.72);
+  --grid: rgba(255, 117, 155, 0.12);
+  --border: rgba(255, 126, 162, 0.2);
+  --glass: rgba(255, 230, 238, 0.1);
+  --glass-strong: rgba(255, 230, 238, 0.16);
+  --glass-border: rgba(255, 231, 238, 0.3);
+  --glass-shadow: 0 24px 70px rgba(0, 0, 0, 0.38), 0 6px 22px rgba(255, 65, 119, 0.1);
   --glass-inset: inset 0 1px 1px rgba(255, 255, 255, 0.92), inset 0 -1px 1px rgba(155, 18, 59, 0.1);
 
   --font-serif: 'Microsoft YaHei', '微软雅黑', sans-serif;
@@ -64,7 +64,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -161,7 +161,7 @@ img { display: block; max-width: 100%; }
   min-height: var(--header-h);
   height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
   padding: env(safe-area-inset-top, 0px) max(clamp(20px, 4vw, 48px), env(safe-area-inset-right, 0px)) 0 max(clamp(20px, 4vw, 48px), env(safe-area-inset-left, 0px));
-  background: rgba(255, 235, 241, 0.54);
+  background: rgba(15, 6, 10, 0.68);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
@@ -837,9 +837,9 @@ footer {
   pointer-events: none;
   perspective: 1200px;
   background:
-    radial-gradient(circle at 16% 22%, rgba(255, 235, 242, 0.65), transparent 34%),
-    radial-gradient(circle at 82% 72%, rgba(229, 65, 113, 0.2), transparent 36%),
-    linear-gradient(145deg, rgba(255, 198, 213, 0.2), rgba(245, 143, 166, 0.12));
+    radial-gradient(circle at 16% 22%, rgba(255, 50, 107, 0.16), transparent 34%),
+    radial-gradient(circle at 82% 72%, rgba(255, 107, 150, 0.11), transparent 36%),
+    linear-gradient(145deg, rgba(15, 6, 10, 0.3), rgba(3, 2, 3, 0.18));
 }
 
 .spatial-installation::before {
@@ -1840,8 +1840,8 @@ footer {
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     background:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 224, 233, 0.32)),
-      rgba(255, 255, 255, 0.24);
+      linear-gradient(135deg, rgba(62, 20, 36, 0.5), rgba(22, 8, 14, 0.44)),
+      rgba(20, 8, 13, 0.38);
     backdrop-filter: blur(26px) saturate(150%);
     box-shadow: var(--glass-shadow), var(--glass-inset);
   }
@@ -1854,7 +1854,7 @@ footer {
   position: relative;
   border: 1px solid var(--glass-border);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.5), rgba(255, 229, 236, 0.2)),
+    linear-gradient(145deg, rgba(72, 24, 42, 0.38), rgba(20, 8, 14, 0.48)),
     var(--glass);
   backdrop-filter: blur(26px) saturate(135%);
   box-shadow: var(--glass-shadow), var(--glass-inset);
@@ -1884,8 +1884,8 @@ footer {
   padding: clamp(22px, 3vw, 30px);
   border-radius: 28px;
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.5), transparent 42%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.5), rgba(255, 224, 233, 0.22));
+    radial-gradient(circle at 18% 12%, rgba(255, 111, 153, 0.16), transparent 42%),
+    linear-gradient(145deg, rgba(69, 22, 40, 0.42), rgba(18, 7, 12, 0.5));
 }
 
 .works__header {
@@ -1896,7 +1896,7 @@ footer {
   border: 1px solid var(--glass-border);
   border-radius: 999px;
   background:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.5), rgba(255, 216, 228, 0.46) 46%, rgba(233, 70, 119, 0.2)),
+    linear-gradient(120deg, rgba(65, 20, 38, 0.52), rgba(98, 24, 51, 0.38) 46%, rgba(209, 35, 84, 0.18)),
     var(--glass-strong);
   backdrop-filter: blur(28px) saturate(150%);
   box-shadow: 0 18px 50px rgba(126, 21, 55, 0.15), var(--glass-inset);
@@ -1910,8 +1910,8 @@ footer {
   border: 1px solid var(--glass-border);
   border-radius: 999px;
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.48), rgba(255, 211, 224, 0.42), rgba(218, 42, 94, 0.16)),
-    rgba(255, 255, 255, 0.28);
+    linear-gradient(115deg, rgba(70, 22, 41, 0.5), rgba(104, 25, 54, 0.34), rgba(218, 42, 94, 0.13)),
+    rgba(24, 9, 15, 0.38);
   box-shadow: 0 10px 28px rgba(126, 21, 55, 0.12), var(--glass-inset);
 }
 
@@ -1949,7 +1949,7 @@ footer {
   padding: 5px 11px;
   border: 1px solid rgba(255, 255, 255, 0.84);
   border-radius: 999px;
-  background: linear-gradient(110deg, rgba(255, 255, 255, 0.44), rgba(255, 207, 222, 0.38));
+  background: linear-gradient(110deg, rgba(255, 232, 239, 0.12), rgba(255, 91, 138, 0.12));
   box-shadow: 0 6px 16px rgba(126, 21, 55, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -1958,8 +1958,8 @@ footer {
   border-color: var(--glass-border);
   border-radius: 999px;
   background:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.44), rgba(255, 211, 224, 0.38), rgba(222, 48, 100, 0.14)),
-    rgba(255, 255, 255, 0.28);
+    linear-gradient(115deg, rgba(255, 235, 241, 0.1), rgba(255, 83, 132, 0.1), rgba(222, 48, 100, 0.08)),
+    rgba(27, 10, 17, 0.38);
   box-shadow: 0 8px 20px rgba(126, 21, 55, 0.1), var(--glass-inset);
 }
 
@@ -1982,7 +1982,7 @@ footer {
 .work-embed {
   padding: 8px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.5), rgba(255, 220, 230, 0.24)),
+    linear-gradient(145deg, rgba(255, 235, 241, 0.14), rgba(83, 20, 44, 0.22)),
     var(--glass);
   backdrop-filter: blur(24px) saturate(140%);
 }
@@ -1994,14 +1994,14 @@ footer {
 
 .work-embed__bar {
   border-radius: 18px 18px 0 0;
-  background: rgba(255, 242, 246, 0.48);
+  background: rgba(28, 10, 17, 0.62);
 }
 
 .work-phones__item {
   border: 1px solid rgba(255, 255, 255, 0.92);
   border-radius: 26px;
   padding: 7px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 232, 239, 0.1);
   box-shadow: 0 26px 64px rgba(126, 21, 55, 0.17), var(--glass-inset);
   backdrop-filter: blur(20px);
 }
@@ -2017,7 +2017,7 @@ footer {
 
 .footer {
   border-top-color: rgba(255, 255, 255, 0.82);
-  background: rgba(255, 224, 233, 0.46);
+  background: rgba(15, 6, 10, 0.72);
   backdrop-filter: blur(22px);
   box-shadow: 0 -18px 50px rgba(126, 21, 55, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
