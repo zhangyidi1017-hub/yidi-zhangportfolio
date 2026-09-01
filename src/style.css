@@ -8,11 +8,7 @@
   --accent-soft: #ffd0dc;
   --yellow: var(--accent);
   --accent-gradient: linear-gradient(135deg, #ff2f6c 0%, #ff5d87 48%, #ff9ab5 100%);
-  --bg-gradient:
-    radial-gradient(ellipse 90% 64% at 5% -5%, rgba(184, 18, 66, 0.24) 0%, transparent 54%),
-    radial-gradient(ellipse 78% 56% at 100% 12%, rgba(255, 65, 119, 0.16) 0%, transparent 58%),
-    radial-gradient(ellipse 70% 48% at 50% 100%, rgba(120, 20, 54, 0.13) 0%, transparent 64%),
-    linear-gradient(160deg, #050305 0%, #0b0508 48%, #030203 100%);
+  --bg-gradient: linear-gradient(160deg, #050305 0%, #080407 52%, #030203 100%);
   --text: #fff1f5;
   --text-muted: rgba(255, 225, 234, 0.72);
   --grid: rgba(255, 117, 155, 0.12);
@@ -30,15 +26,6 @@
   --header-h: 72px;
   --max-w: 1320px;
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --installation-rotate: 0deg;
-  --installation-counter-rotate: 0deg;
-  --installation-drift: 0px;
-  --installation-lift: 0px;
-  --installation-depth: 0px;
-  --installation-scale: 1;
-  --installation-glow: 0.44;
-  --installation-pointer-x: 0deg;
-  --installation-pointer-y: 0deg;
 }
 
 /* ===== Reset ===== */

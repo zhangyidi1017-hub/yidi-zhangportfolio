@@ -17,40 +17,7 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-const spatialRoot = document.documentElement;
-const reduceSpatialMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-function updateSpatialInstallation(scrollPosition = window.scrollY) {
-  if (reduceSpatialMotion.matches) return;
-
-  const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-  const progress = Math.min(1, Math.max(0, scrollPosition / maxScroll));
-  const wave = Math.sin(progress * Math.PI * 4);
-
-  spatialRoot.style.setProperty('--installation-rotate', `${progress * 118}deg`);
-  spatialRoot.style.setProperty('--installation-counter-rotate', `${progress * -76}deg`);
-  spatialRoot.style.setProperty('--installation-drift', `${wave * 72}px`);
-  spatialRoot.style.setProperty('--installation-lift', `${progress * -130}px`);
-  spatialRoot.style.setProperty('--installation-depth', `${Math.sin(progress * Math.PI) * 135}px`);
-  spatialRoot.style.setProperty('--installation-scale', `${1 + Math.sin(progress * Math.PI * 2) * 0.08}`);
-  spatialRoot.style.setProperty('--installation-glow', `${0.34 + Math.abs(wave) * 0.24}`);
-}
-
-lenis.on('scroll', (event) => {
-  ScrollTrigger.update();
-  updateSpatialInstallation(event.scroll);
-});
-
-if (!reduceSpatialMotion.matches) {
-  window.addEventListener('pointermove', (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 7;
-    const y = (event.clientY / window.innerHeight - 0.5) * -5;
-    spatialRoot.style.setProperty('--installation-pointer-x', `${x}deg`);
-    spatialRoot.style.setProperty('--installation-pointer-y', `${y}deg`);
-  }, { passive: true });
-}
-
-updateSpatialInstallation();
+lenis.on('scroll', ScrollTrigger.update);
 
 // ===== DOM =====
 const menuOpen = document.getElementById('menuOpen');
