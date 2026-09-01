@@ -1389,6 +1389,12 @@ footer {
   opacity: 0.75;
 }
 
+.work-embed__meta {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
 .work-embed__frame {
   display: block;
   width: 100%;
