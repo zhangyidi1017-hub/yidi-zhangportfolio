@@ -1575,6 +1575,19 @@ footer {
   left: -14px;
 }
 
+.work-brief--inline .work-brief__list li > ul {
+  display: grid;
+  gap: 5px;
+  margin: 8px 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.work-brief--inline .work-brief__list li > ul li {
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
 .work-knowledge-module {
   margin-top: 20px;
 }
