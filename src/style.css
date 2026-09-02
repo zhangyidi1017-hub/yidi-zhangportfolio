@@ -1261,6 +1261,10 @@ footer {
   max-width: min(920px, 100%);
 }
 
+.work--text-only .work__grid {
+  grid-template-columns: 1fr;
+}
+
 .work__title {
   font-size: clamp(1.2rem, 2.2vw, 1.85rem);
   font-weight: 300;
