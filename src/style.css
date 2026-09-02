@@ -187,6 +187,9 @@ img { display: block; max-width: 100%; }
 }
 
 .header__logo {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 4vw, 56px);
   font-family: var(--font-serif);
   font-size: clamp(0.95rem, 1.5vw, 1.2rem);
   font-weight: 700;
@@ -2464,6 +2467,7 @@ footer {
   .header__logo {
     justify-self: start;
     grid-column: 1;
+    gap: 10px;
     white-space: normal;
     font-size: 0.82rem;
     line-height: 1.3;
