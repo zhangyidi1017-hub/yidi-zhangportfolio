@@ -561,28 +561,6 @@ img { display: block; max-width: 100%; }
   transform: translateY(-50%);
 }
 
-.about__location {
-  padding: 20px 0;
-  margin-bottom: 20px;
-}
-
-.about__location-label {
-  display: block;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.about__location-city {
-  display: block;
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
-  margin-bottom: 4px;
-}
-
-.about__location-coords {
-  color: var(--text-muted);
-  font-size: 0.625rem;
-}
-
 .about__more {
   color: var(--yellow);
   border-bottom: 1px solid var(--yellow);
