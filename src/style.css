@@ -391,14 +391,6 @@ img { display: block; max-width: 100%; }
   display: block;
 }
 
-.about__profile-name {
-  margin: 0;
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-}
-
 .about__profile-contact {
   display: flex;
   flex-direction: row;
