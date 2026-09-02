@@ -106,7 +106,6 @@ img { display: block; max-width: 100%; }
 }
 
 .grid-overlay__v--1 { left: 25%; }
-.grid-overlay__v--2 { left: 50%; }
 .grid-overlay__v--3 { left: 75%; }
 
 /* ===== Link Hover (original nav effect) ===== */
