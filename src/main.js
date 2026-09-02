@@ -148,6 +148,36 @@ gsap.from('.about__content > *', {
 const sections = document.querySelectorAll('section[id], #contact, #work, #education, #skills');
 const navLinks = document.querySelectorAll('[data-nav]');
 
+// ===== Contact Copy =====
+document.querySelectorAll('[data-copy]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const value = button.dataset.copy || '';
+    const status = button.closest('.about__profile')?.querySelector('.about__copy-status');
+    const originalLabel = button.dataset.copyLabel || '复制';
+
+    button.dataset.copyLabel = '已复制';
+    if (status) status.textContent = `已复制：${value}`;
+    window.setTimeout(() => {
+      button.dataset.copyLabel = originalLabel;
+      if (status) status.textContent = '';
+    }, 1800);
+
+    try {
+      await navigator.clipboard.writeText(value);
+    } catch {
+      const input = document.createElement('textarea');
+      input.value = value;
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      input.remove();
+    }
+
+  });
+});
+
 ScrollTrigger.create({
   start: 0,
   end: 'max',
