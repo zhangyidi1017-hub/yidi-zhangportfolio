@@ -56,7 +56,6 @@
       <nav class="mobile-menu__nav">
         <a href="#about" class="mobile-menu__link">简介</a>
         <a href="#works" class="mobile-menu__link">产品</a>
-        <a href="#agent-system" class="mobile-menu__link">方法论</a>
         <a href="#work" class="mobile-menu__link">工作</a>
         <a href="#education" class="mobile-menu__link">教育</a>
         <a href="#contact" class="mobile-menu__link">联系</a>
@@ -435,45 +434,6 @@
             </div>
           </div>
         </article>
-      </section>
-
-      <!-- ===== AGENT SYSTEM ===== -->
-      <section class="agent-system" id="agent-system">
-        <div class="agent-system__head">
-          <h2>Agent 产品系统与方法论</h2>
-        </div>
-
-        <div class="agent-system__architecture" aria-label="Agent 产品架构">
-          <div class="agent-layer agent-layer--user"><strong>用户与业务任务</strong><small>用户目标 · 业务约束 · 成功标准</small></div>
-          <div class="agent-system__arrow">↓</div>
-          <div class="agent-system__split">
-            <div class="agent-layer"><strong>意图 · Memory · 任务上下文</strong><small>意图理解 · 长短期记忆 · 任务状态</small></div>
-            <div class="agent-layer"><strong>结构化数据库 · Vector RAG</strong><small>事实约束 · 专业知识 · 引用溯源</small></div>
-          </div>
-          <div class="agent-system__arrow">↓</div>
-          <div class="agent-layer agent-layer--core"><strong>Planner · Reasoner · Skill Router</strong><small>任务拆解 · 路径决策 · 技能编排 · 异常降级</small></div>
-          <div class="agent-system__arrow">↓</div>
-          <div class="agent-system__skills"><span>RAG</span><span>搜索</span><span>生成</span><span>编辑</span><span>SKU / API</span><span>MCP / 工具</span></div>
-          <div class="agent-system__arrow">↓</div>
-          <div class="agent-layer agent-layer--output"><strong>输出 → Evaluation → Badcase → Memory</strong><small>结果校验 · 失败归因 · 回归测试 · 持续优化</small></div>
-        </div>
-
-        <div class="agent-decisions">
-          <article><span class="mono">产品决策 01</span><h3>为什么 MVP 不直接使用多 Agent？</h3><p>早期任务边界尚未稳定，多 Agent 会增加通信成本、延迟与调试复杂度。因此优先采用中心 Planner + 专用 Skills，在复杂任务稳定后再按边界拆分。</p></article>
-          <article><span class="mono">产品决策 02</span><h3>为什么不用纯 Vector RAG？</h3><p>时间、地点、开放状态和商品库存属于强结构化约束，完全依赖向量召回容易产生冲突。因此采用结构化数据库 + Vector RAG，让事实校验与语义解释各自承担合适任务。</p></article>
-          <article><span class="mono">产品决策 03</span><h3>为什么把 Memory 拆成三层？</h3><p>会话记忆、任务状态与长期画像生命周期不同。分层存储与按场景召回，可以减少错误记忆、临时条件污染和无关上下文带来的决策偏差。</p></article>
-        </div>
-
-        <div class="ai-toolkit">
-          <div class="ai-toolkit__title"><span class="mono">我的 AI 产品工作流</span></div>
-          <ol>
-            <li><span>问题定义</span></li><li><span>用户与任务建模</span></li>
-            <li><span>模型 Benchmark</span></li><li><span>Agent 架构</span></li>
-            <li><span>RAG / Memory 设计</span></li><li><span>Skill 与工具设计</span></li>
-            <li><span>Evaluation 评测</span></li><li><span>Badcase 分析</span></li>
-            <li><span>产品迭代</span></li><li><span>业务验证</span></li>
-          </ol>
-        </div>
       </section>
 
       <section class="about-detail" id="about-detail">
